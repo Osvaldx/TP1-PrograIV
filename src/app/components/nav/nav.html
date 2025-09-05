@@ -1,14 +1,14 @@
 <nav class="p-1">
     <div class="flex justify-evenly items-center max-sm:justify-between">
-        <a class="flex justify-center items-center" href="">
-            <img class="size-15 object-cover" src="../../../assets/logo.png" alt="">
+        <a class="flex justify-center items-center gap-3" href="">
+            <img src="../../../assets/logo.svg" class="size-12" alt="">
             <p class="uppercase font-bold">Programacion IV</p>
         </a>
         <div class="hidden sm:flex gap-5">
             <button class="cursor-pointer" routerLink="/home" routerLinkActive="text-yellow-400">Inicio</button>
             <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400">Quien soy</button>
         </div>
-        <button class="cursor-pointer bg-yellow-400 p-2 pr-3 pl-3 border border-none text-black rounded-2xl
+        <button class="cursor-pointer bg-yellow-400 p-2 pr-3 pl-3 border border-none text-sky-800 rounded-2xl
         hover:scale-105 transition" routerLink="/login">Iniciar Sesion</button>
         <button (click)="hideMenu()" class="p-1 md:hidden text-2xl">☰</button>
     </div>
