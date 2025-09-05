@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Oswald";
+    src: url("fonts/Oswald.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @theme {
+    --font-display: "Oswald", sans-serif; 
+  }
