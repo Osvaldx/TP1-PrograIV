@@ -32,5 +32,4 @@ export class About {
   public transformDate(d: string) {
     return this.DateTime.getDate(d);
   }
-
 }
