@@ -8,8 +8,13 @@
             <button class="cursor-pointer" routerLink="/home" routerLinkActive="text-yellow-400">Inicio</button>
             <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400">Quien soy</button>
         </div>
-        <button class="cursor-pointer bg-yellow-400 p-2 pr-3 pl-3 border border-none text-sky-800 rounded-2xl
-        hover:scale-105 transition" routerLink="/login">Iniciar Sesion</button>
+        @if(hideButton) {
+            <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
+            hover:scale-105 transition" (click)="signOut()">Cerrar Sesion</button>
+        } @else {
+            <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
+            hover:scale-105 transition" routerLink="/login">Iniciar Sesion</button>
+        }
         <button (click)="hideMenu()" class="p-1 md:hidden text-2xl">☰</button>
     </div>
     <div class="flex flex-col p-2 overflow-hidden transition-all ease-in-out md:hidden"
