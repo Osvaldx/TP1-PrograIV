@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Auth } from '../../services/database/auth';
+import { ToastManager } from '../../services/toast-manager';
 
 @Component({
   selector: 'app-nav',
@@ -8,12 +9,14 @@ import { Auth } from '../../services/database/auth';
   templateUrl: './nav.html',
   styleUrl: './nav.css'
 })
+
 export class Nav {
 
   protected hideButton: boolean = false;
   protected hide: boolean = false;
 
   authService = inject(Auth);
+  toastManager = inject(ToastManager);
 
   constructor(private change: ChangeDetectorRef) {
     this.authService.$user.subscribe((user) => {
@@ -35,11 +38,11 @@ export class Nav {
   public async signOut() {
     const { error } = await this.authService.signOut();
 
-    if(error) {
-      alert("ocurrio algo y no cerro");
+    if(!error) {
+      this.authService.resetUser();
+      this.toastManager.show("success", "Se cerro la sesion correctamente", true, 2000);
     } else {
-      this.authService.currentUser.next(null);
+      this.toastManager.show("error", "Algo ocurrio, intente más tarde", true, 2000);
     }
-
   }
 }
