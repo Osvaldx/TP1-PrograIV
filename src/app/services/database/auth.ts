@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient, User } from "@supabase/supabase-js" 
 import { environment as env } from '../../../environments/environment';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +11,16 @@ export class Auth {
 
   private supabase: SupabaseClient;
   // BehaviorSubject para guardar el usuario actual
-  public currentUser = new BehaviorSubject<User | null>(null);
+  private currentUser = new BehaviorSubject<User | null>(null);
   // Observable para que los componentes se suscriban
   public $user = this.currentUser.asObservable();
 
   constructor() {
     this.supabase = createClient(env.supabase.API_URL, env.supabase.API_KEY);
+
+    this.supabase.auth.getSession().then(({ data }) => {
+      this.currentUser.next(data.session?.user ?? null);
+    });
 
     this.supabase.auth.onAuthStateChange((_, session) => {
       this.currentUser.next(session?.user ?? null);
@@ -33,6 +37,14 @@ export class Auth {
 
   public signOut() {
     return this.supabase.auth.signOut();
+  }
+
+  public resetUser() {
+    this.currentUser.next(null);
+  }
+
+  public getData() {
+    return this.$user.pipe(map((data) => data));
   }
 
 }

@@ -34,10 +34,18 @@ export class Login {
     const email = this.loginForm.controls.email.value;
     const password = this.loginForm.controls.password.value;
 
+    if(email?.trim() === "" || password?.trim() === "") {
+      this.showToast("error", "Complete todos los campos.", 3000);
+      return
+    }
+
     const { data,error } = await this.authService.login(email!,password!);
 
     if(error) {
       this.showToast("error", "Credenciales Invalidas", 3000);
+    } else {
+      this.showToast("success", "Inicio de sesion exitoso!", 1000);
+      this.sendHome();
     }
 
   }
@@ -48,6 +56,10 @@ export class Login {
 
   public showToast(type: 'success' | 'info' | 'error', message: string, duration: number) {
     this.toastManager.show(type, message, true, duration);
+  }
+
+  public test() {
+    console.log(this.authService.getData());
   }
 
 }

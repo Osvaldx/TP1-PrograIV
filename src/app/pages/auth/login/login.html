@@ -5,6 +5,7 @@
       <p class="text-lg text-center mb-6">
         Ingresa tus datos para acceder a tu cuenta!
       </p>
+      <p>{{test()}}</p>
       <button 
         class="bg-yellow-400 text-sky-800 px-6 py-2 rounded-xl font-semibold hover:scale-105 transition cursor-pointer"
         routerLink="/register">
@@ -22,15 +23,17 @@
             type="email" 
             formControlName="email"
             class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder:text-black/30"
+            [class.border-red-500]="(loginForm.controls.email.touched && loginForm.controls.email.invalid)"
             placeholder="ejemplo123@mail.com">
-        </div>
-        <div>
-          <label for="password" class="block text-sm font-semibold text-gray-700">Contraseña</label>
-          <input 
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-semibold text-gray-700">Contraseña</label>
+            <input 
             id="password" 
             type="password" 
             formControlName="password"
             class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder:text-black/30"
+            [class.border-red-500]="(loginForm.controls.password.touched && loginForm.controls.password.value?.trim() === '')"
             placeholder="********">
         </div>
         <button 
