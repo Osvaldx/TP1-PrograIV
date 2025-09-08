@@ -1,12 +1,12 @@
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from "@angular/forms"
 import { Auth } from '../../../services/database/auth';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastManager } from '../../../services/toast-manager';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -22,13 +22,7 @@ export class Login {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor(private cdr: ChangeDetectorRef) {
-    this.authService.$user.subscribe((user) => {
-      if(user) {
-        this.sendHome();
-      }
-    })
-  }
+  constructor() { }
 
   public async login() {
     const email = this.loginForm.controls.email.value;
@@ -51,15 +45,11 @@ export class Login {
   }
 
   private sendHome() {
-    return this.router.navigateByUrl('home', { replaceUrl: true });
+    return this.router.navigateByUrl('', { replaceUrl: true });
   }
 
   public showToast(type: 'success' | 'info' | 'error', message: string, duration: number) {
     this.toastManager.show(type, message, true, duration);
-  }
-
-  public test() {
-    console.log(this.authService.getData());
   }
 
 }
