@@ -18,10 +18,6 @@ export class Auth {
   constructor() {
     this.supabase = createClient(env.supabase.API_URL, env.supabase.API_KEY);
 
-    this.supabase.auth.getSession().then(({ data }) => {
-      this.currentUser.next(data.session?.user ?? null);
-    });
-
     this.supabase.auth.onAuthStateChange((_, session) => {
       this.currentUser.next(session?.user ?? null);
     })
@@ -43,8 +39,9 @@ export class Auth {
     this.currentUser.next(null);
   }
 
-  public getData() {
-    return this.$user.pipe(map((data) => data));
+  async getSessionAsync() {
+    const { data } = await this.supabase.auth.getSession()
+    return data.session;
   }
 
 }
