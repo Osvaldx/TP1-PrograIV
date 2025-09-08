@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Auth } from '../../services/database/auth';
 import { ToastManager } from '../../services/toast-manager';
 
@@ -17,6 +17,7 @@ export class Nav {
 
   authService = inject(Auth);
   toastManager = inject(ToastManager);
+  router = inject(Router);
 
   constructor(private change: ChangeDetectorRef) {
     this.authService.$user.subscribe((user) => {
@@ -40,9 +41,14 @@ export class Nav {
 
     if(!error) {
       this.authService.resetUser();
-      this.toastManager.show("success", "Se cerro la sesion correctamente", true, 2000);
+      this.toastManager.show("success", "Se cerro la sesion correctamente", true, 3000);
+      this.sendLogin();
     } else {
-      this.toastManager.show("error", "Algo ocurrio, intente más tarde", true, 2000);
+      this.toastManager.show("error", "Algo ocurrio, intente más tarde", true, 3000);
     }
+  }
+
+  public sendLogin() {
+    return this.router.navigateByUrl('/auth/login', { replaceUrl: true });
   }
 }
