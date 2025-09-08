@@ -5,15 +5,15 @@
             <p class="uppercase font-bold">Programacion IV</p>
         </a>
         <div class="hidden sm:flex gap-5">
-            <button class="cursor-pointer" routerLink="/home" routerLinkActive="text-yellow-400">Inicio</button>
-            <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400">Quien soy</button>
+            <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
+            <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Quien soy</button>
         </div>
         @if(hideButton) {
             <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
             hover:scale-105 transition" (click)="signOut()">Cerrar Sesion</button>
         } @else {
             <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
-            hover:scale-105 transition" routerLink="/login">Iniciar Sesion</button>
+            hover:scale-105 transition" routerLink="/auth/login">Iniciar Sesion</button>
         }
         <button (click)="hideMenu()" class="p-1 md:hidden text-2xl">☰</button>
     </div>
@@ -21,8 +21,8 @@
     [class.max-h-0] = !this.hide
     [class.max-h-96] = this.hide>
         <hr class="bg-yellow-400">
-        <button class="cursor-pointer" routerLink="/home" routerLinkActive="text-yellow-400">Inicio</button>
-        <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400">Quien soy</button>
+        <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
+        <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Quien soy</button>
         <hr class="bg-yellow-400">
     </div>
 </nav>
