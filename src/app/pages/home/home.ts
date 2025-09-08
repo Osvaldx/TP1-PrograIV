@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Header } from "../../components/header/header";
+import { CardGame } from '../../components/card-game/card-game';
 
 @Component({
   selector: 'app-home',
-  imports: [Header],
+  imports: [CardGame],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

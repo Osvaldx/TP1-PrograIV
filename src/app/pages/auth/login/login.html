@@ -1,1 +1,53 @@
-<p>login works!</p>
+<main class="h-screen flex items-center justify-center bg-gradient-to-br from-sky-100 to-sky-200">
+  <section class="w-11/12 max-w-4xl bg-white rounded-2xl shadow-lg flex overflow-hidden max-sm:flex-col">
+    <div class="w-1/2 bg-sky-500 text-white flex flex-col justify-center items-center p-10 relative max-sm:w-full">
+      <h2 class="text-3xl font-bold mb-3">¡Bienvenido!</h2>
+      <p class="text-lg text-center mb-6">
+        Ingresa tus datos para acceder a tu cuenta!
+      </p>
+      <button 
+        class="bg-yellow-400 text-sky-800 px-6 py-2 rounded-xl font-semibold hover:scale-105 transition cursor-pointer"
+        routerLink="/auth/register">
+        Registrarse
+      </button>
+    </div>
+    <div class="w-1/2 p-10 flex flex-col justify-center max-sm:w-full">
+      <h3 class="text-2xl font-bold text-sky-700 mb-2">Iniciar Sesión</h3>
+      <p class="text-gray-600 mb-6">Usa tu correo y contraseña</p>
+      <form [formGroup]="loginForm" class="space-y-5">
+        <div>
+          <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
+          <input 
+            id="email" 
+            type="email" 
+            formControlName="email"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder:text-black/30"
+            [class.border-red-500]="(loginForm.controls.email.touched && loginForm.controls.email.invalid)"
+            placeholder="ejemplo123@mail.com">
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-semibold text-gray-700">Contraseña</label>
+            <input 
+            id="password" 
+            type="password" 
+            formControlName="password"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 placeholder:text-black/30"
+            [class.border-red-500]="(loginForm.controls.password.touched && loginForm.controls.password.value?.trim() === '')"
+            placeholder="********">
+        </div>
+        <button 
+          type="button"
+          class="w-full bg-yellow-400 text-sky-900 py-2 rounded-lg font-semibold hover:scale-105 transition cursor-pointer"
+          (click)="login()">
+          Iniciar Sesión
+        </button>
+      </form>
+      <div class="flex flex-col justify-center items-center gap-2">
+        <a href="#" class="mt-4 text-sm text-sky-600 hover:underline">
+          ¿Olvidaste tu contraseña?
+        </a>
+        <button class=" bg-gray-400 text-black py-2 rounded-lg font-semibold hover:scale-105 transition cursor-pointer w-fit p-2" (click)="fillField()">Acceso rapido</button>
+      </div>
+    </div>
+  </section>
+</main>
