@@ -52,4 +52,9 @@ export class Login {
     this.toastManager.show(type, message, true, duration);
   }
 
+  public fillField() {
+    this.loginForm.controls.email.setValue("test@gmail.com");
+    this.loginForm.controls.password.setValue("123456");
+  }
+
 }
