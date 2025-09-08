@@ -42,10 +42,12 @@
           Iniciar Sesión
         </button>
       </form>
-      <a href="#" class="mt-4 text-sm text-sky-600 hover:underline">
-        ¿Olvidaste tu contraseña?
-      </a>
+      <div class="flex flex-col justify-center items-center gap-2">
+        <a href="#" class="mt-4 text-sm text-sky-600 hover:underline">
+          ¿Olvidaste tu contraseña?
+        </a>
+        <button class=" bg-gray-400 text-black py-2 rounded-lg font-semibold hover:scale-105 transition cursor-pointer w-fit p-2" (click)="fillField()">Acceso rapido</button>
+      </div>
     </div>
-
   </section>
 </main>
