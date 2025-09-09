@@ -6,6 +6,7 @@ import { Register } from './pages/auth/register/register';
 import { authGuard } from './guards/auth-guard';
 import { MainLayout } from './layouts/main-layout/main-layout';
 import { homeGuard } from './guards/home-guard';
+import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
     {
@@ -24,5 +25,8 @@ export const routes: Routes = [
             { path: "login", component: Login, },
             { path: "register", component: Register }
         ]
-    }
+    },
+    { path: "not-found", component: NotFound },
+
+    { path: "**", redirectTo: "not-found", pathMatch: "full" }
 ];
