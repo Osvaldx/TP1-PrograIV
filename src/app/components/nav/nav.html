@@ -2,27 +2,45 @@
     <div class="flex justify-evenly items-center max-sm:justify-between">
         <a class="flex justify-center items-center gap-3" href="">
             <img src="../../../assets/logo.svg" class="size-12" alt="">
-            <p class="uppercase font-bold">Programacion IV</p>
+            <p class="uppercase font-bold max-sm:text-sm">Programacion IV</p>
         </a>
         <div class="hidden sm:flex gap-5">
             <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
             <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Quien soy</button>
         </div>
         @if(hideButton) {
-            <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
-            hover:scale-105 transition" (click)="signOut()">Cerrar Sesion</button>
+            <div class="flex gap-5">
+                <div class="flex items-center gap-2 max-sm:hidden">
+                    <img class="size-10 border-2 rounded-full max-sm:size-8" src="../../../assets/perfil.png" alt="">
+                    <p>{{credentials.firstName}}</p>
+                </div>
+                <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
+                hover:scale-105 transition max-sm:hidden" (click)="signOut()">Cerrar Sesion</button>
+            </div>
         } @else {
-            <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
-            hover:scale-105 transition" routerLink="/auth/login">Iniciar Sesion</button>
+            <div class="flex gap-1">
+                <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-sky-800 rounded-2xl
+                hover:scale-105 transition max-sm:text-sm" routerLink="/auth/login">Iniciar Sesion</button>
+                <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-sky-800 rounded-2xl
+                hover:scale-105 transition max-sm:text-sm" routerLink="/auth/register">Registrarse</button>
+            </div>
+            
         }
-        <button (click)="hideMenu()" class="p-1 md:hidden text-2xl">☰</button>
+        @if(hideButton) {
+            <div class="flex items-center gap-2 sm:hidden">
+                <img class="size-10 border-2 rounded-full max-sm:size-8" src="../../../assets/perfil.png" alt="">
+                <p>{{credentials.firstName}}</p>
+                <button (click)="hideMenu()" class="p-1 md:hidden text-2xl">☰</button>
+            </div>
+        }
     </div>
-    <div class="flex flex-col p-2 overflow-hidden transition-all ease-in-out md:hidden"
+    <div class="flex flex-col items-center p-1 overflow-hidden transition-all ease-in-out md:hidden gap-2"
     [class.max-h-0] = !this.hide
     [class.max-h-96] = this.hide>
-        <hr class="bg-yellow-400">
         <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
         <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Quien soy</button>
-        <hr class="bg-yellow-400">
+        @if(hideButton) {
+            <button class="cursor-pointer bg-yellow-400 w-fit px-2 py-1 border border-none text-sky-800 rounded-2xl hover:scale-105 transition" (click)="signOut()">Cerrar Sesion</button>
+        }
     </div>
 </nav>
