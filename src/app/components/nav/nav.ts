@@ -3,6 +3,11 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Auth } from '../../services/database/auth';
 import { ToastManager } from '../../services/toast-manager';
 
+export interface UserData {
+  email: string,
+  firstName: string
+}
+
 @Component({
   selector: 'app-nav',
   imports: [RouterLink, RouterLinkActive],
@@ -14,15 +19,17 @@ export class Nav {
 
   protected hideButton: boolean = false;
   protected hide: boolean = false;
+  protected credentials: UserData = { email: "", firstName: "" };
 
   authService = inject(Auth);
   toastManager = inject(ToastManager);
   router = inject(Router);
 
   constructor(private change: ChangeDetectorRef) {
-    this.authService.$user.subscribe((user) => {
+    this.authService.$user.subscribe(async(user) => {
       if(user) {
         this.hideButton = true;
+        this.credentials = await this.authService.getCredentials(user);
         this.change.markForCheck();
       } else {
         this.hideButton = false;
