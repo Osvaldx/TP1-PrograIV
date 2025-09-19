@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient, User } from "@supabase/supabase-js" 
 import { environment as env } from '../../../environments/environment';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export interface CredetialsFormat {
   firstName: string,
