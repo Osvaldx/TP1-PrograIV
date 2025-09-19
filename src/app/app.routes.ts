@@ -1,30 +1,25 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
-import { About } from './pages/about/about';
-import { Login } from './pages/auth/login/login';
-import { Register } from './pages/auth/register/register';
 import { authGuard } from './guards/auth-guard';
 import { MainLayout } from './layouts/main-layout/main-layout';
-import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
     {
         path: "",
         component: MainLayout,
         children: [
-            { path: "", component: Home },
-            { path: "about", component: About }
+            { path: "", loadComponent: () => import('./pages/home/home').then(m => m.Home) },
+            { path: "about", loadComponent: () => import('./pages/about/about').then(m => m.About) }
         ]
     },
     {
         path: "auth",
         canActivate: [authGuard],
         children: [
-            { path: "login", component: Login, },
-            { path: "register", component: Register }
+            { path: "login", loadComponent: () => import('./pages/auth/login/login').then(m => m.Login), },
+            { path: "register", loadComponent: () => import('./pages/auth/register/register').then(m => m.Register) }
         ]
     },
     
-    { path: "not-found", component: NotFound },
+    { path: "not-found", loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFound) },
     { path: "**", redirectTo: "not-found", pathMatch: "full" }
 ];
