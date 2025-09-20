@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth-guard';
 import { MainLayout } from './layouts/main-layout/main-layout';
+import { GamesLayout } from './layouts/games-layout/games-layout';
 
 export const routes: Routes = [
     {
@@ -17,6 +18,16 @@ export const routes: Routes = [
         children: [
             { path: "login", loadComponent: () => import('./pages/auth/login/login').then(m => m.Login), },
             { path: "register", loadComponent: () => import('./pages/auth/register/register').then(m => m.Register) }
+        ]
+    },
+    {
+        path: "games",
+        component: GamesLayout,
+        children: [
+            { path: "ahorcado", loadComponent: () => import('./pages/games/ahorcado/ahorcado').then(m => m.Ahorcado) },
+            { path: "mayoromenor", loadComponent: () => import('./pages/games/mayoromenor/mayoromenor').then(m => m.Mayoromenor) },
+            { path: "preguntados", loadComponent: () => import('./pages/games/preguntados/preguntados').then(m => m.Preguntados) },
+            { path: "snake", loadComponent: () => import('./pages/games/snakegame/snakegame').then(m => m.Snakegame) }
         ]
     },
     
