@@ -14,15 +14,15 @@
                     <img class="size-10 border-2 rounded-full max-sm:size-8" src="../../../assets/perfil.png" alt="">
                     <p>{{credentials.firstName}}</p>
                 </div>
-                <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-sky-800 rounded-2xl
+                <button class="cursor-pointer bg-yellow-400 py-1 px-3 border border-none text-blue-900 rounded-2xl
                 hover:scale-105 transition max-sm:hidden" (click)="signOut()">Cerrar Sesion</button>
             </div>
         } @else {
             <div class="flex gap-1">
-                <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-sky-800 rounded-2xl
-                hover:scale-105 transition max-sm:text-sm" routerLink="/auth/login">Iniciar Sesion</button>
-                <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-sky-800 rounded-2xl
-                hover:scale-105 transition max-sm:text-sm" routerLink="/auth/register">Registrarse</button>
+                <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-blue-900 rounded-2xl
+                hover:scale-105 transition max-sm:text-sm max-sm:hidden" routerLink="/auth/login">Iniciar Sesion</button>
+                <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-blue-900 rounded-2xl
+                hover:scale-105 transition max-sm:text-sm max-sm:hidden" routerLink="/auth/register">Registrarse</button>
             </div>
             
         }
@@ -30,6 +30,10 @@
             <div class="flex items-center gap-2 sm:hidden">
                 <img class="size-10 border-2 rounded-full max-sm:size-8" src="../../../assets/perfil.png" alt="">
                 <p>{{credentials.firstName}}</p>
+                <button (click)="hideMenu()" class="p-1 md:hidden text-2xl">☰</button>
+            </div>
+        } @else {
+            <div class="flex items-center gap-2 sm:hidden">
                 <button (click)="hideMenu()" class="p-1 md:hidden text-2xl">☰</button>
             </div>
         }
@@ -40,7 +44,12 @@
         <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
         <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Quien soy</button>
         @if(hideButton) {
-            <button class="cursor-pointer bg-yellow-400 w-fit px-2 py-1 border border-none text-sky-800 rounded-2xl hover:scale-105 transition" (click)="signOut()">Cerrar Sesion</button>
+            <button class="cursor-pointer bg-yellow-400 w-fit px-2 py-1 border border-none text-blue-800 rounded-2xl hover:scale-105 transition" (click)="signOut()">Cerrar Sesion</button>
+        } @else {
+            <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-blue-900 rounded-2xl
+                hover:scale-105 transition max-sm:text-sm" routerLink="/auth/login">Iniciar Sesion</button>
+            <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-blue-900 rounded-2xl
+            hover:scale-105 transition max-sm:text-sm" routerLink="/auth/register">Registrarse</button>
         }
     </div>
 </nav>
