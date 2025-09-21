@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth-guard';
 import { MainLayout } from './layouts/main-layout/main-layout';
 import { GamesLayout } from './layouts/games-layout/games-layout';
+import { gamesGuard } from './guards/games-guard';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,7 @@ export const routes: Routes = [
     {
         path: "games",
         component: GamesLayout,
+        canMatch: [gamesGuard],
         children: [
             { path: "ahorcado", loadComponent: () => import('./pages/games/ahorcado/ahorcado').then(m => m.Ahorcado) },
             { path: "mayoromenor", loadComponent: () => import('./pages/games/mayoromenor/mayoromenor').then(m => m.Mayoromenor) },
