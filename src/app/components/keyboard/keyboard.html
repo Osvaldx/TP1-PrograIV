@@ -1,0 +1,9 @@
+<div class="flex flex-col p-5 gap-1 items-center">
+    @for (row of keyboardKeys; track $index) {
+        <div class="flex justify-center gap-1.5">
+            @for (key of row; track $index) {
+                <app-key (clickedLetter)="sendLetter($event)" [letter]="key.letter" [indexL]="key.index"></app-key>
+            }
+        </div>
+    }
+</div>
