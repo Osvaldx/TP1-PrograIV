@@ -23,7 +23,9 @@ export class Key {
   }
   
   public sendLetter() {
+    this.ahorcado.selectedCards.update(c => c + 1);
     this.clickedLetter.emit({letter: this.letter!, index: this.indexL!})
+    console.log(this.ahorcado.selectedCards());
     this.disableKey = true;
   }
 
