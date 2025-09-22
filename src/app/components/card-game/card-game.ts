@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card-game',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './card-game.html',
   styleUrl: './card-game.css'
 })
@@ -12,5 +13,6 @@ export class CardGame {
   @Input() description!: string;
   @Input() icon!: string;
   @Input() urlPhoto!: string;
+  @Input() routerGame!: string;
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient, User } from "@supabase/supabase-js" 
-import { environment as env } from '../../../environments/environment';
+import { User } from "@supabase/supabase-js" 
 import { BehaviorSubject } from 'rxjs';
+import { SupabaseService } from './supabase-service';
 
 export interface CredetialsFormat {
   firstName: string,
@@ -18,32 +18,27 @@ export interface CredetialsFormat {
 
 export class Auth {
 
-  private supabase: SupabaseClient;
-  // BehaviorSubject para guardar el usuario actual
   private currentUser = new BehaviorSubject<User | null>(null);
-  // Observable para que los componentes se suscriban
   public $user = this.currentUser.asObservable();
 
-  constructor() {
-    this.supabase = createClient(env.supabase.API_URL, env.supabase.API_KEY);
-
-    this.supabase.auth.onAuthStateChange((_, session) => {
+  constructor(private supabase: SupabaseService) {
+    this.supabase.client.auth.onAuthStateChange((_, session) => {
       this.currentUser.next(session?.user ?? null);
     })
   }
 
   public login(email: string, password: string) {
-    return this.supabase.auth.signInWithPassword({email,password});
+    return this.supabase.client.auth.signInWithPassword({email,password});
   }
 
   public async register(credentials: CredetialsFormat) {
     const email = credentials.email;
     const password = credentials.password;
 
-    const resp = await this.supabase.auth.signUp({ email, password });
+    const resp = await this.supabase.client.auth.signUp({ email, password });
     
     if(!resp.error && resp.data.user) {
-      const { error } = await this.supabase.from("profiles").insert({
+      const { error } = await this.supabase.client.from("profiles").insert({
         id: resp.data.user.id,
         firstName: credentials.firstName,
         lastName: credentials.lastName,
@@ -56,7 +51,7 @@ export class Auth {
   }
 
   public signOut() {
-    return this.supabase.auth.signOut();
+    return this.supabase.client.auth.signOut();
   }
 
   public resetUser() {
@@ -64,7 +59,7 @@ export class Auth {
   }
 
   async getSessionAsync() {
-    const { data } = await this.supabase.auth.getSession()
+    const { data } = await this.supabase.client.auth.getSession()
     return data.session;
   }
 
@@ -74,7 +69,7 @@ export class Auth {
       firstName: ""
     }
 
-    const { error, data } = await this.supabase.from("profiles").select("firstName").eq("id", user.id).single();
+    const { error, data } = await this.supabase.client.from("profiles").select("firstName").eq("id", user.id).single();
 
     if(!error && data) {
       credentials.firstName = data.firstName;

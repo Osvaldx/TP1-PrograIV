@@ -1,0 +1,43 @@
+@if (isVisible()) {
+  <div class="fixed bottom-20 right-6 w-100 h-120 bg-white rounded-2xl shadow-2xl border-2 border-black drop-shadow-black drop-shadow-xl/50 flex flex-col z-30 animate-slide-up">
+    <div class="p-3 bg-blue-900 text-white font-bold rounded-t-xl border-b-2 border-black flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+        </svg>
+        <span class="text-lg">Chat Global</span>
+      </div>
+      <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+    </div>
+    <div class="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-blue-50 to-blue-100">
+        @for (msg of messages(); track $index) {
+          <div class="bg-white rounded-xl p-3 border border-gray-200 drop-shadow-sm hover:drop-shadow-md transition-all duration-200">
+            <div class="flex justify-between gap-2 mb-1">
+              <b class="text-black text-sm">{{ msg.first_name }}</b>
+              <p class="text-sm text-gray-500" >{{parseDate(msg.created_at!)}}</p>
+            </div>
+            <p class="text-gray-800 text-sm leading-relaxed">{{ msg.content }}</p>
+          </div>
+        }
+    </div>
+    <div class="p-4 bg-white border-t-2 border-black rounded-b-xl">
+      <div class="flex gap-2">
+        <input 
+          [value]="msg()" 
+          (input)="msg.set($any($event.target).value)" 
+          (keyup.enter)="send()"
+          placeholder="Escribe tu mensaje..."
+          class="flex-1 border-2 border-gray-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-sky-200 focus:ring-2 focus:ring-sky-200 transition-all duration-200"
+        />
+        <button 
+          (click)="send()" 
+          class="bg-blue-400 hover:bg-blue-700 text-white px-4 py-2 cursor-pointer rounded-xl font-bold border-2 border-transparent drop-shadow-black drop-shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+}

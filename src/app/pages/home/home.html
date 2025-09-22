@@ -1,12 +1,49 @@
 <main class="bg-gradient-to-br from-blue-100 to-blue-200 w-full min-h-screen max-sm:w-fit">
-    <section class="p-10 flex justify-center max-sm:flex-col max-sm:p-0">
-        <div class="max-sm:flex flex-col flex-wrap">
-            <app-card-game icon="😵" gameName="Ahorcado" description="Adivina la palabra antes de que se complete el muñeco o seras ahorcado" urlPhoto="../../../assets/games/ahorcado.png"></app-card-game>
-            <app-card-game icon="▶️◀️" gameName="Mayor o Menor" description="Di si un numero es mayor o es menor a otro" urlPhoto="../../../assets/games/mayoromenor.png"></app-card-game>
-        </div>
-        <div class="max-sm:flex flex-col flex-wrap">
-            <app-card-game icon="❓" gameName="Preguntados" description="Responde preguntas de cultura general y gana puntos" urlPhoto="../../../assets/games/preguntados.png"></app-card-game>
-            <app-card-game icon="🐍" gameName="Snake Game" description="Come todas las manzanas que puedas sin chocarte." urlPhoto="../../../assets/games/snake.png"></app-card-game>
-        </div>
-    </section>
+  <section class="p-10 flex justify-center max-sm:flex-col max-sm:p-0">
+    <div class="max-sm:flex flex-col flex-wrap">
+      <app-card-game
+        icon="😵"
+        gameName="Ahorcado"
+        description="Adivina la palabra antes de que se complete el muñeco o seras ahorcado"
+        urlPhoto="../../../assets/games/ahorcado.png"
+        routerGame="ahorcado"
+      ></app-card-game>
+      <app-card-game
+        icon="▶️◀️"
+        gameName="Mayor o Menor"
+        description="Di si un numero es mayor o es menor a otro"
+        urlPhoto="../../../assets/games/mayoromenor.png"
+        routerGame="mayoromenor"
+      ></app-card-game>
+    </div>
+    <div class="max-sm:flex flex-col flex-wrap">
+      <app-card-game
+        icon="❓"
+        gameName="Preguntados"
+        description="Responde preguntas de cultura general y gana puntos"
+        urlPhoto="../../../assets/games/preguntados.png"
+        routerGame="preguntados"
+      ></app-card-game>
+      <app-card-game
+        icon="🐍"
+        gameName="Snake Game"
+        description="Come todas las manzanas que puedas sin chocarte."
+        urlPhoto="../../../assets/games/snake.png"
+        routerGame="snake"
+      ></app-card-game>
+    </div>
+  </section>
+  
+  <button
+    (click)="toggleChat()" 
+    class="fixed bottom-6 right-6 w-14 h-14 bg-blue-700 hover:bg-yellow-400 text-white rounded-full shadow-lg border-2 border-white drop-shadow-black drop-shadow-lg/50 transition-all duration-300 hover:scale-110 active:scale-95 z-40 cursor-pointer"
+    [class.bg-yellow-400]="showChat()"
+    [class.hover:bg-yellow-500]="showChat()"
+    [disabled]="chatDisabled()"
+  >
+    <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+    </svg>
+  </button>
+  <app-chat [isVisible]="showChat()"></app-chat>
 </main>

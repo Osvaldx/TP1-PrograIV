@@ -1,0 +1,13 @@
+<main class="h-screen bg-blue-100 flex flex-col justify-center">
+    <section class="flex flex-col justify-center items-center p-2 gap-4">
+        <h2 class="font-bold text-4xl uppercase max-sm:text-3xl">EL AHORCADO 😵</h2>
+        <app-ahorcado-sprite></app-ahorcado-sprite>
+        <h3 class="text-3xl font-bold tracking-[1rem] uppercase">{{secretWord()}}</h3>
+        <div class="flex gap-5">
+            <p><strong>Tiempo:</strong> {{timePlaying()}}s</p>
+            <p><strong>Errores:</strong> {{errors.length}}/6</p>
+        </div>
+        <app-keyboard (LetterSelect)="handleLetter($event)"></app-keyboard>
+        <button (click)="resetGame()" class="uppercase border border-transparent bg-yellow-400 font-bold text-2xl p-2 text-blue-900 rounded-2xl cursor-pointer hover:scale-110 transition-transform active:scale-90">reiniciar</button>
+    </section>
+</main>

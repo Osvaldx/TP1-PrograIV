@@ -1,3 +1,7 @@
-<header class="font-[Oswald] bg-blue-950 text-white text-[1rem] sm:text-[1.5rem]">
-    <app-nav></app-nav>
+<header class="font-[Oswald] bg-blue-950 text-white text-[1rem] sm:text-[1.5rem] p-1">
+    @if (type === 'home') {
+        <app-nav></app-nav>
+    } @else if (type === 'games') {
+        <app-nav-games></app-nav-games>
+    }
 </header>

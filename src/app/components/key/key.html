@@ -1,0 +1,7 @@
+<button
+  (click)="sendLetter()"
+  class="border border-transparent p-5 text-dm max-sm:p-2 max-sm:text-sm rounded-md bg-blue-900 text-white font-bold cursor-pointer hover:bg-yellow-400 hover:text-blue-800 active:scale-70 transition-transform disabled:bg-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed disabled:active:scale-none"
+  [disabled]="isDisabled"
+>
+  {{ letter }}
+</button>
