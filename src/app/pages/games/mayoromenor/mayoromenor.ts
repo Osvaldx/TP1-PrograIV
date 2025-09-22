@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { MayorMenor } from '../../../services/database/mayor-menor';
 import { CardFormat } from '../../../interfaces/card-format';
-import { randomInt, sign } from 'node:crypto';
 import { ToastManager } from '../../../services/toast-manager';
 
 @Component({
