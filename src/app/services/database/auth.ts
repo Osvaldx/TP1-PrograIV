@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient, User } from "@supabase/supabase-js" 
-import { environment as env } from '../../../environments/environment';
+import { User } from "@supabase/supabase-js" 
 import { BehaviorSubject } from 'rxjs';
 import { SupabaseService } from './supabase-service';
 
@@ -23,8 +22,6 @@ export class Auth {
   public $user = this.currentUser.asObservable();
 
   constructor(private supabase: SupabaseService) {
-    this.supabase.client = createClient(env.supabase.API_URL, env.supabase.API_KEY);
-
     this.supabase.client.auth.onAuthStateChange((_, session) => {
       this.currentUser.next(session?.user ?? null);
     })
