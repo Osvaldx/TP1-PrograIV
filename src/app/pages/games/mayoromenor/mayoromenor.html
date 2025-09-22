@@ -1,1 +1,30 @@
-<p>mayoromenor works!</p>
+<div class="flex flex-col items-center justify-center min-h-screen bg-sky-100 gap-6">
+  <h3 class="text-2xl capitalize"><strong>racha</strong> 🔥<span class="text-orange-600">{{racha()}}</span></h3>
+    <div class="flex gap-8 items-center">
+      <div class="w-[120px] h-[180px] bg-white shadow-xl rounded-xl flex items-center justify-center text-3xl font-bold">
+        <img class="w-full" [src]="(this.currentCard()) ? this.currentCard()?.imagen_url : 'https://media.tenor.com/hQz0Kl373E8AAAAj/loading-waiting.gif' " alt="">
+      </div>  
+      <span class="text-4xl font-bold text-gray-600">→</span>
+      <div class="w-[120px] h-[180px] bg-gray-200 shadow-inner rounded-xl flex items-center justify-center text-3xl font-bold">
+        ?
+      </div>
+    </div>
+    <div class="flex gap-10">
+      <p><strong>Errores: </strong> {{this.errors()}}/6</p>
+      <p><strong>Puntos: </strong> {{this.points()}}</p>
+    </div>
+    <div class="flex gap-6 mt-6">
+      <button
+      [disabled]="isDisabled  || this.toast.isVisible"
+      (click)="validateSelect(false)"
+      class="bg-red-500 hover:bg-red-700 text-white px-6 py-2 rounded-xl shadow-md font-bold transition cursor-pointer disabled:bg-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed">
+        Menor ↓
+      </button>
+      <button [disabled]="isDisabled || this.toast.isVisible"
+      (click)="validateSelect(true)"
+      class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-xl shadow-md font-bold transition cursor-pointer disabled:bg-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed">
+        Mayor ↑
+      </button>
+    </div>
+    <button [disabled]="this.inGame()" (click)="resetGame()" class="uppercase border border-transparent bg-yellow-400 font-bold p-2 text-blue-900 rounded-2xl cursor-pointer hover:scale-110 transition-transform active:scale-90 disabled:bg-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed">reiniciar</button>
+</div>
