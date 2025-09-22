@@ -1,41 +1,52 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { Keyboard } from '../../../components/keyboard/keyboard';
 import { LetterFormat } from '../../../interfaces/letter-format';
 import { RandomWord } from '../../../services/random-word';
 import { WordFormat } from '../../../interfaces/randomW-format';
 import { ToastManager } from '../../../services/toast-manager';
-import { Router } from '@angular/router';
+import { AhorcadoSprite } from '../../../components/ahorcado-sprite/ahorcado-sprite';
+import { GameAhorcado } from '../../../services/database/game-ahorcado';
 
 @Component({
   selector: 'app-ahorcado',
-  imports: [Keyboard],
+  imports: [Keyboard, AhorcadoSprite],
   templateUrl: './ahorcado.html',
   styleUrl: './ahorcado.css'
 })
 
-export class Ahorcado {
+export class Ahorcado implements OnDestroy, OnInit{
 
   private wordData = signal<WordFormat | null>(null);
   public secretWord = signal<string>("...");
   public errors: string[] = [];
+  public frame = signal<number>(0);
   public blockKeys = signal<boolean>(false);
   public reset = signal<boolean>(false);
-  public timePlaying = signal<number>(60);
+  public timePlaying = signal<number>(0);
   private timeID: NodeJS.Timeout | null = null;
+  public selectedCards = signal<number>(0);
 
-  constructor(private apiWord: RandomWord, private toast: ToastManager, private router: Router) { }
+  constructor(private apiWord: RandomWord, private toast: ToastManager, private gameAhorcado: GameAhorcado) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.timer();
     this.generateWord();
-    this.oClock();
   }
   
-  private oClock() {    
+  ngOnDestroy(): void {
+    clearInterval(this.timeID as NodeJS.Timeout);
+  }
+
+  private validateGame() {
+    if(this.secretWord() === "...") {
+      this.blockKeys.set(true);
+      clearInterval(this.timeID as NodeJS.Timeout);
+    }
+  }
+
+  private timer() {    
     this.timeID = setInterval(() => {
-      this.timePlaying.update(t => t - 1);
-      if(this.timePlaying() === 0) {
-        this.loseGame();
-      }
+      this.timePlaying.update(t => t + 1);
     }, 1000);
   }
   
@@ -49,6 +60,7 @@ export class Ahorcado {
         console.log(error);
       }
     })
+    this.validateGame();
   }
 
   public handleLetter($event: LetterFormat) {
@@ -96,6 +108,7 @@ export class Ahorcado {
   private registerError(letter: string) {
     if (this.errors.length < 6) {
       this.errors.push(letter.toUpperCase());
+      this.frame.set(this.errors.length);
       console.log(`error: ${letter}`);
   
       if (this.errors.length === 6) {
@@ -109,6 +122,8 @@ export class Ahorcado {
     this.blockKeys.set(true);
     console.log(`ERRORES: ${this.errors}`);
     clearInterval(this.timeID as NodeJS.Timeout);
+    console.log(`Toco total: ${this.selectedCards()}`)
+    this.gameAhorcado.insertStats(this.timePlaying(), true, this.selectedCards(), this.errors.length)
   }
   
   private loseGame() {
@@ -117,6 +132,8 @@ export class Ahorcado {
     console.log(this.errors);
     clearInterval(this.timeID as NodeJS.Timeout);
     this.revealWord();
+    console.log(`Toco total: ${this.selectedCards()}`)
+    this.gameAhorcado.insertStats(this.timePlaying(), false, this.selectedCards(), this.errors.length)
   }
 
   public removeAccents(word: string) {
@@ -126,10 +143,14 @@ export class Ahorcado {
   public resetGame() {
     this.generateWord();
     this.blockKeys.set(false);
+    this.selectedCards.set(0);
+    this.validateGame();
     this.errors = [];
+    this.frame.set(0);
     this.reset.set(true);
-    this.timePlaying.set(60);
-    this.oClock();
+    clearInterval(this.timeID as NodeJS.Timeout);
+    this.timePlaying.set(0);
+    this.timer();
 
     setTimeout(() => {
       this.reset.set(false);
