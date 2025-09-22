@@ -38,9 +38,11 @@ export class Ahorcado implements OnDestroy, OnInit{
   }
 
   private validateGame() {
-    if(this.secretWord() === "...") {
+    if(!this.wordData() || !this.wordData()?.word) {
       this.blockKeys.set(true);
       clearInterval(this.timeID as NodeJS.Timeout);
+    } else {
+      this.blockKeys.set(false);
     }
   }
 
@@ -51,16 +53,16 @@ export class Ahorcado implements OnDestroy, OnInit{
   }
   
   private generateWord() {
-    this.apiWord.getRandomWord().subscribe((data) => {
+    this.apiWord.getRandomWord().subscribe(async(data) => {
       try {
-        this.wordData.set(data[0]);
-        this.secretWord.set("_".repeat(this.wordData()?.word.length!))
+        await this.wordData.set(data[0]);
+        await this.secretWord.set("_".repeat(this.wordData()?.word.length!))
         console.log(`API DATA: ${data[0].word}`);
+        this.validateGame();
       } catch(error) {
         console.log(error);
       }
     })
-    this.validateGame();
   }
 
   public handleLetter($event: LetterFormat) {
