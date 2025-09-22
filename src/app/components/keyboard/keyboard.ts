@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Key } from '../key/key';
 import { LetterFormat } from '../../interfaces/letter-format';
 
