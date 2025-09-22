@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastData } from '../interfaces/toast-data';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Injectable({
@@ -29,6 +29,12 @@ export class ToastManager {
 
   public hide() {
     this.toastStatus.next({...this.toastStatus.value, visible: false});
+  }
+
+  public get isVisible() {
+    let retorno = false;
+    this.toast$.pipe(take(1)).subscribe(toast => {retorno = toast.visible})
+    return retorno
   }
   
 }
