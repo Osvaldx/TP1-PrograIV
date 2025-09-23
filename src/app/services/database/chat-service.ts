@@ -41,7 +41,7 @@ export class ChatService {
 
   public listenForMessages(callback: (msg: Message) => void) {
     return this.supabase.client
-      .channel('public:messages')
+      .channel('realtime:messages')
       .on(
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table: 'messages' },
