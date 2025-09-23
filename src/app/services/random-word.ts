@@ -7,7 +7,7 @@ import { WordFormat } from '../interfaces/randomW-format';
 })
 export class RandomWord {
 
-  private apiURL: string = "https://random-words-api.vercel.app/word/spanish";
+  private apiURL: string = "https://random-words-api-utn1.vercel.app/api/word";
   
   constructor(private client: HttpClient) {}
 
