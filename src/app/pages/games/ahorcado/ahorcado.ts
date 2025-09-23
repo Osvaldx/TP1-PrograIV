@@ -36,7 +36,7 @@ export class Ahorcado implements OnDestroy, OnInit{
   ngOnDestroy(): void {
     clearInterval(this.timeID as NodeJS.Timeout);
   }
-
+  
   private validateGame() {
     if(!this.wordData() || !this.wordData()?.word) {
       this.blockKeys.set(true);
@@ -45,24 +45,26 @@ export class Ahorcado implements OnDestroy, OnInit{
       this.blockKeys.set(false);
     }
   }
-
+  
   private timer() {    
     this.timeID = setInterval(() => {
       this.timePlaying.update(t => t + 1);
     }, 1000);
   }
   
-  private generateWord() {
-    this.apiWord.getRandomWord().subscribe(async(data) => {
+  private async generateWord() {
+    await this.apiWord.getRandomWord().subscribe(async(data) => {
       try {
         await this.wordData.set(data[0]);
         await this.secretWord.set("_".repeat(this.wordData()?.word.length!))
         console.log(`API DATA: ${data[0].word}`);
-        this.validateGame();
       } catch(error) {
         console.log(error);
       }
     })
+    setTimeout(() => {
+      this.validateGame();
+    }, 500);
   }
 
   public handleLetter($event: LetterFormat) {
