@@ -116,6 +116,11 @@ export class Register {
       return validateResult
     }
 
+    if (isNaN(age)) {
+      this.toastManager.show("error", "Edad inválida, debe ser un número", true, 3000);
+      return validateResult;
+    }
+
     if(age < 5 || age > 99) {
       this.toastManager.show("error", "Edad Invalida, no puede acceder a esta pagina", true, 3000);
       return validateResult
