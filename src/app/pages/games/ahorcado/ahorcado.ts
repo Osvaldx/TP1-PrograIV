@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { Keyboard } from '../../../components/keyboard/keyboard';
 import { LetterFormat } from '../../../interfaces/letter-format';
 import { RandomWord } from '../../../services/random-word';
@@ -20,13 +20,18 @@ export class Ahorcado implements OnDestroy, OnInit{
   public secretWord = signal<string>("...");
   public errors: string[] = [];
   public frame = signal<number>(0);
-  public blockKeys = signal<boolean>(false);
+  public blockKeys = signal<boolean>(true);
   public reset = signal<boolean>(false);
   public timePlaying = signal<number>(0);
   private timeID: NodeJS.Timeout | null = null;
   public selectedCards = signal<number>(0);
 
-  constructor(private apiWord: RandomWord, private toast: ToastManager, private gameAhorcado: GameAhorcado) { }
+  constructor(
+    private apiWord: RandomWord,
+    private toast: ToastManager,
+    private gameAhorcado: GameAhorcado,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
     this.timer();
@@ -57,14 +62,13 @@ export class Ahorcado implements OnDestroy, OnInit{
       try {
         await this.wordData.set(data[0]);
         await this.secretWord.set("_".repeat(this.wordData()?.word.length!))
+        this.cdr.markForCheck();
         console.log(`API DATA: ${data[0].word}`);
+        this.validateGame();
       } catch(error) {
         console.log(error);
       }
     })
-    setTimeout(() => {
-      this.validateGame();
-    }, 500);
   }
 
   public handleLetter($event: LetterFormat) {
