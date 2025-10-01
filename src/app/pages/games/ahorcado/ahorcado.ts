@@ -34,7 +34,6 @@ export class Ahorcado implements OnDestroy, OnInit{
   ) { }
 
   ngOnInit(): void {
-    this.timer();
     this.generateWord();
   }
   
@@ -48,10 +47,13 @@ export class Ahorcado implements OnDestroy, OnInit{
       clearInterval(this.timeID as NodeJS.Timeout);
     } else {
       this.blockKeys.set(false);
+      this.timer();
     }
   }
   
-  private timer() {    
+  private timer() {
+    if(this.timeID) clearInterval(this.timeID as NodeJS.Timeout);
+
     this.timeID = setInterval(() => {
       this.timePlaying.update(t => t + 1);
     }, 1000);
@@ -158,7 +160,6 @@ export class Ahorcado implements OnDestroy, OnInit{
     this.reset.set(true);
     clearInterval(this.timeID as NodeJS.Timeout);
     this.timePlaying.set(0);
-    this.timer();
 
     setTimeout(() => {
       this.reset.set(false);
