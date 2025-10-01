@@ -14,7 +14,7 @@
           <div class="bg-white rounded-xl p-3 border border-gray-200 drop-shadow-sm hover:drop-shadow-md transition-all duration-200">
             <div class="flex justify-between gap-2 mb-1">
               <b class="text-black text-sm">{{ msg.first_name }}</b>
-              <p class="text-sm text-gray-500" >{{parseDate(msg.created_at!)}}</p>
+              <p class="text-sm text-gray-500" >{{msg.created_at | date:'d/M/yy, h:mm a'}}</p>
             </div>
             <p class="text-gray-800 text-sm leading-relaxed">{{ msg.content }}</p>
           </div>

@@ -2,10 +2,11 @@ import { Component, OnDestroy, OnInit, signal, input } from '@angular/core';
 import { ChatService } from '../../services/database/chat-service';
 import { Message } from '../../interfaces/messages-format';
 import { RealtimeChannel } from '@supabase/supabase-js';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-chat',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './chat.html',
   styleUrl: './chat.css'
 })
@@ -38,16 +39,16 @@ export class Chat implements OnInit, OnDestroy {
     this.msg.set('');
   }
 
-  public parseDate(created_at: string): string {
-    if (!created_at) return '';
+  // public parseDate(created_at: string): string {
+  //   if (!created_at) return '';
   
-    const date = new Date(created_at);
+  //   const date = new Date(created_at);
   
-    return date.toLocaleTimeString('es-AR', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    });
-  }
+  //   return date.toLocaleTimeString('es-AR', {
+  //     hour: '2-digit',
+  //     minute: '2-digit',
+  //     second: '2-digit',
+  //   });
+  // }
 
 }
