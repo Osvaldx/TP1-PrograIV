@@ -2,10 +2,11 @@ import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { GithubApi } from '../../services/github-api';
 import { GitHubUser } from '../../interfaces/git-hub-user';
 import { DateTimeService } from '../../services/date-time-service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './about.html',
   styleUrl: './about.css'
 })
@@ -27,8 +28,8 @@ export class About {
       this.change.detectChanges();
      });
   }
-
-  public transformDate(d: string) {
-    return this.DateTime.getDate(d);
-  }
+  // Utilizamos un Pipe y remplazamos este codigo q ya no sirve
+  // public transformDate(d: string) {
+  //   return this.DateTime.getDate(d);
+  // }
 }
