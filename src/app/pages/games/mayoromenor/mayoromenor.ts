@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { MayorMenor } from '../../../services/database/mayor-menor';
 import { CardFormat } from '../../../interfaces/card-format';
 import { ToastManager } from '../../../services/toast-manager';
+import { CanExit } from '../../../interfaces/can-exit';
 
 @Component({
   selector: 'app-mayoromenor',
@@ -9,7 +10,7 @@ import { ToastManager } from '../../../services/toast-manager';
   templateUrl: './mayoromenor.html',
   styleUrl: './mayoromenor.css'
 })
-export class Mayoromenor implements OnInit, OnDestroy {
+export class Mayoromenor implements OnInit, OnDestroy, CanExit{
 
   private cards: CardFormat[] = [];
   public errors = signal<number>(0);
