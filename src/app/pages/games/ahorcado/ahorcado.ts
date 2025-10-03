@@ -6,6 +6,7 @@ import { WordFormat } from '../../../interfaces/randomW-format';
 import { ToastManager } from '../../../services/toast-manager';
 import { AhorcadoSprite } from '../../../components/ahorcado-sprite/ahorcado-sprite';
 import { GameAhorcado } from '../../../services/database/game-ahorcado';
+import { CanExit } from '../../../interfaces/can-exit';
 
 @Component({
   selector: 'app-ahorcado',
@@ -14,7 +15,7 @@ import { GameAhorcado } from '../../../services/database/game-ahorcado';
   styleUrl: './ahorcado.css'
 })
 
-export class Ahorcado implements OnDestroy, OnInit{
+export class Ahorcado implements OnDestroy, OnInit, CanExit{
 
   private wordData = signal<WordFormat | null>(null);
   public secretWord = signal<string>("...");
@@ -25,6 +26,7 @@ export class Ahorcado implements OnDestroy, OnInit{
   public timePlaying = signal<number>(0);
   private timeID: NodeJS.Timeout | null = null;
   public selectedCards = signal<number>(0);
+  public inGame = signal<boolean>(true);
 
   constructor(
     private apiWord: RandomWord,
@@ -134,6 +136,7 @@ export class Ahorcado implements OnDestroy, OnInit{
     clearInterval(this.timeID as NodeJS.Timeout);
     console.log(`Toco total: ${this.selectedCards()}`)
     this.gameAhorcado.insertStats(this.timePlaying(), true, this.selectedCards(), this.errors.length)
+    this.inGame.update(p => !p);
   }
   
   private loseGame() {
@@ -144,13 +147,15 @@ export class Ahorcado implements OnDestroy, OnInit{
     this.revealWord();
     console.log(`Toco total: ${this.selectedCards()}`)
     this.gameAhorcado.insertStats(this.timePlaying(), false, this.selectedCards(), this.errors.length)
+    this.inGame.update(p => !p);
   }
-
+  
   public removeAccents(word: string) {
     return word.normalize("NFD").replace(/\p{Diacritic}/gu, "");
   }
-
+  
   public resetGame() {
+    this.inGame.update(p => !p);
     this.generateWord();
     this.blockKeys.set(false);
     this.selectedCards.set(0);
@@ -160,7 +165,7 @@ export class Ahorcado implements OnDestroy, OnInit{
     this.reset.set(true);
     clearInterval(this.timeID as NodeJS.Timeout);
     this.timePlaying.set(0);
-
+    
     setTimeout(() => {
       this.reset.set(false);
     }, 3000);
