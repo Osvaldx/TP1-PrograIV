@@ -49,13 +49,8 @@ export class Nav {
     if(!error) {
       this.authService.resetUser();
       this.toastManager.show("success", "Se cerro la sesion correctamente", true, 3000);
-      this.sendLogin();
     } else {
       this.toastManager.show("error", "Algo ocurrio, intente más tarde", true, 3000);
     }
-  }
-
-  public sendLogin() {
-    return this.router.navigateByUrl('/auth/login', { replaceUrl: true });
   }
 }
