@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ChangeColorBtnPlayDirective } from "../../directives/change-color-btn-play-directive";
 
 @Component({
   selector: 'app-card-game',
-  imports: [RouterLink],
+  imports: [RouterLink, ChangeColorBtnPlayDirective],
   templateUrl: './card-game.html',
   styleUrl: './card-game.css'
 })

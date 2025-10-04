@@ -8,7 +8,7 @@
         <p class="text-sm text-gray-700 leading-snug line-clamp-3">
             {{description}}
         </p>
-        <button [routerLink]="'/games/' + routerGame" class="drop-shadow-black drop-shadow-xs border border-yellow-700 px-5 py-1.5 bg-yellow-400 text-white text-shadow-lg/30 text-shadow-black font-bold rounded-md hover:bg-yellow-500 transition cursor-pointer active:scale-90">
+        <button [routerLink]="'/games/' + routerGame" class="drop-shadow-black drop-shadow-xs border border-yellow-700 px-5 py-1.5 bg-yellow-400 text-white text-shadow-lg/30 text-shadow-black font-bold rounded-md transition cursor-pointer active:scale-90" appChangeColorBtnPlayDirective>
             <span class="text-xl">Jugar</span>
         </button>
     </div>
