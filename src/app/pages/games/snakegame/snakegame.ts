@@ -2,6 +2,8 @@ import { Component, computed, HostListener, OnInit, signal } from '@angular/core
 import { SnakeCell } from "../../../directives/snake-cell";
 import { ToastManager } from '../../../services/toast-manager';
 import { ScaleBtnDirective } from "../../../directives/scale-btn-directive";
+import { GamesService } from '../../../services/database/games-service';
+import { GamesType } from '../../../enums/games-type';
 
 const keyDownDirecction: Record<string, string> = {
   'KeyW': 'up',
@@ -43,7 +45,7 @@ export class Snakegame {
   public apples = signal<number>(0);
   private TIMER_ID = signal<NodeJS.Timeout | null>(null);
 
-  constructor(private toast: ToastManager) {}
+  constructor(private toast: ToastManager, private gamesDB: GamesService) {}
 
   @HostListener('window:keydown', ['$event']) toggleKey(event: KeyboardEvent) {
     const code = event.code;
@@ -110,13 +112,9 @@ export class Snakegame {
     }
   }
 
-  private loser() {
+  private stopGame() {
     this.toast.show("error", "Perdiste :(", true, 3000);
-    this.pause();
-  }
-  
-  private winner() {
-    this.toast.show("success", "Ganaste :)", true, 3000);
+    this.saveStats();
     this.pause();
   }
 
@@ -152,14 +150,14 @@ export class Snakegame {
     }
 
     if (newX < 0 || newX >= this.size || newY < 0 || newY >= this.size) {
-      this.loser();
+      this.stopGame();
       return;
     }
 
     const newHead = this.xyToIndex(newX, newY);
 
     if (this.snake().includes(newHead)) {
-      this.loser();
+      this.stopGame();
       return;
     }
 
@@ -209,5 +207,13 @@ export class Snakegame {
   
   public LeftSnake() {
     this.handleDirection('KeyA');
+  }
+
+  private saveStats() {
+    this.gamesDB.insertStats(GamesType.snake_game, this.points(), false, {
+      apples: this.apples(),
+      time_playing: this.timer(),
+      snake_len: this.snake().length
+    })
   }
 }
