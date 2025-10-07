@@ -1,21 +1,20 @@
-import { Component } from '@angular/core';
-import { TablesDB } from '../../services/tables-db';
+import { Component, signal } from '@angular/core';
+import { AhorcadoScoreboard } from '../../components/scoreboards/ahorcado-scoreboard/ahorcado-scoreboard';
+import { MayoromenorScoreboard } from '../../components/scoreboards/mayoromenor-scoreboard/mayoromenor-scoreboard';
+import { PreguntadosScoreboard } from '../../components/scoreboards/preguntados-scoreboard/preguntados-scoreboard';
+import { SnakegameScoreboard } from '../../components/scoreboards/snakegame-scoreboard/snakegame-scoreboard';
 
 @Component({
   selector: 'app-results',
-  imports: [],
+  imports: [AhorcadoScoreboard, MayoromenorScoreboard, PreguntadosScoreboard, SnakegameScoreboard],
   templateUrl: './results.html',
   styleUrl: './results.css'
 })
 export class Results {
 
-  constructor(private tableDB: TablesDB) {
-    this.getData();
-  }
+  public tableSelected = signal<string | null>(null);
 
-  public async getData() {
-    const data = await this.tableDB.getDataOfTable();
-    console.log(data[0]);
+  public select(type: string) {
+    this.tableSelected.set(type);
   }
-  
 }

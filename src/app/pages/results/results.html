@@ -1,3 +1,21 @@
-<main class="bg-gradient-to-br from-blue-100 to-blue-200 w-full h-screen max-sm:w-fit">
-    
+<main class="bg-gradient-to-br from-blue-100 to-blue-200 w-full h-screen flex flex-col items-center p-3 sm:p-6">
+    <div class="bg-white border border-blue-100 shadow-lg rounded-2xl p-6 max-sm:p-4 w-fit grid grid-cols-4 max-sm:grid-cols-2 gap-4 max-sm:gap-2 mt-20 max-sm:mt-10 text-center transition-all duration-300">
+        <div class="col-span-4 max-sm:col-span-2">
+            <h2 class="text-3xl max-sm:text-xl font-extrabold uppercase text-blue-900 drop-shadow-sm leading-tight">Top mejores jugadores</h2>
+            <div class="h-[2px] bg-yellow-500 w-24 max-sm:w-16 mx-auto mt-2 rounded-full"></div>
+        </div>
+        <button (click)="select('ahorcado')" class="bg-blue-900 text-white font-semibold py-2 px-4 max-sm:py-1 max-sm:px-2 text-sm max-sm:text-xs rounded-xl hover:bg-yellow-500 hover:text-white cursor-pointer transition-all duration-300 shadow-md active:scale-95">Ahorcado</button>
+        <button (click)="select('mayoromenor')" class="bg-blue-900 text-white font-semibold py-2 px-4 max-sm:py-1 max-sm:px-2 text-sm max-sm:text-xs rounded-xl hover:bg-yellow-500 hover:text-white cursor-pointer transition-all duration-300 shadow-md active:scale-95">Mayor o Menor</button>
+        <button (click)="select('preguntados')" class="bg-blue-900 text-white font-semibold py-2 px-4 max-sm:py-1 max-sm:px-2 text-sm max-sm:text-xs rounded-xl hover:bg-yellow-500 hover:text-white cursor-pointer transition-all duration-300 shadow-md active:scale-95">Preguntados</button>
+        <button (click)="select('snake_game')" class="bg-blue-900 text-white font-semibold py-2 px-4 max-sm:py-1 max-sm:px-2 text-sm max-sm:text-xs rounded-xl hover:bg-yellow-500 hover:text-white cursor-pointer transition-all duration-300 shadow-md active:scale-95">Snake Game</button>
+    </div>
+    <section class="mt-8 max-sm:mt-4 w-full flex justify-center items-center">
+        @switch (tableSelected()) {
+        @case ('ahorcado') { <app-ahorcado-scoreboard></app-ahorcado-scoreboard> }
+        @case ('mayoromenor') { <app-mayoromenor-scoreboard></app-mayoromenor-scoreboard> }
+        @case ('preguntados') { <app-preguntados-scoreboard></app-preguntados-scoreboard> }
+        @case ('snake_game') { <app-snakegame-scoreboard></app-snakegame-scoreboard> }
+        @default { <p class="bg-white rounded-2xl p-3 max-sm:p-2 text-lg max-sm:text-sm text-gray-700 mt-1 text-center shadow">Seleccione alguna opción para visualizar las estadísticas</p> }
+        }
+    </section>
 </main>
