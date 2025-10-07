@@ -5,8 +5,10 @@ import { RandomWord } from '../../../services/random-word';
 import { WordFormat } from '../../../interfaces/randomW-format';
 import { ToastManager } from '../../../services/toast-manager';
 import { AhorcadoSprite } from '../../../components/ahorcado-sprite/ahorcado-sprite';
-import { GameAhorcado } from '../../../services/database/game-ahorcado';
 import { CanExit } from '../../../interfaces/can-exit';
+import { GamesService } from '../../../services/database/games-service';
+import { GamesType } from '../../../enums/games-type';
+import { DetailsAhorcado } from '../../../interfaces/details-ahorcado';
 
 @Component({
   selector: 'app-ahorcado',
@@ -31,8 +33,8 @@ export class Ahorcado implements OnDestroy, OnInit, CanExit{
   constructor(
     private apiWord: RandomWord,
     private toast: ToastManager,
-    private gameAhorcado: GameAhorcado,
-    private cdr: ChangeDetectorRef
+    private gameDB: GamesService,
+    private cdr: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void {
@@ -135,7 +137,7 @@ export class Ahorcado implements OnDestroy, OnInit, CanExit{
     console.log(`ERRORES: ${this.errors}`);
     clearInterval(this.timeID as NodeJS.Timeout);
     console.log(`Toco total: ${this.selectedCards()}`)
-    this.gameAhorcado.insertStats(this.timePlaying(), true, this.selectedCards(), this.errors.length)
+    this.gameDB.insertStats(GamesType.ahorcado, 0, true, { time_playing: this.timePlaying(), selected_letters: this.selectedCards(), errors: this.errors.length } as DetailsAhorcado);
     this.inGame.update(p => !p);
   }
   
@@ -146,7 +148,7 @@ export class Ahorcado implements OnDestroy, OnInit, CanExit{
     clearInterval(this.timeID as NodeJS.Timeout);
     this.revealWord();
     console.log(`Toco total: ${this.selectedCards()}`)
-    this.gameAhorcado.insertStats(this.timePlaying(), false, this.selectedCards(), this.errors.length)
+    this.gameDB.insertStats(GamesType.ahorcado, 0, false, { time_playing: this.timePlaying(), selected_letters: this.selectedCards(), errors: this.errors.length } as DetailsAhorcado);
     this.inGame.update(p => !p);
   }
   
