@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, OnInit, signal } from '@angular/core';
+import { Component, computed, HostListener, OnDestroy, OnInit, signal } from '@angular/core';
 import { SnakeCell } from "../../../directives/snake-cell";
 import { ToastManager } from '../../../services/toast-manager';
 import { ScaleBtnDirective } from "../../../directives/scale-btn-directive";
@@ -26,7 +26,7 @@ const oppositesDirection: Record<string, string> = {
   styleUrl: './snakegame.css'
 })
 
-export class Snakegame {
+export class Snakegame implements OnDestroy{
 
   private intervalID = signal<NodeJS.Timeout | null>(null);
   public inGame = signal<boolean>(false);
@@ -46,6 +46,11 @@ export class Snakegame {
   private TIMER_ID = signal<NodeJS.Timeout | null>(null);
 
   constructor(private toast: ToastManager, private gamesDB: GamesService) {}
+
+  ngOnDestroy(): void {
+    this.pause();
+    this.restartGame();
+  }
 
   @HostListener('window:keydown', ['$event']) toggleKey(event: KeyboardEvent) {
     const code = event.code;
@@ -103,12 +108,17 @@ export class Snakegame {
 
   public pause() {
     this.inParty.set(false);
+  
     const id = this.intervalID();
-    
     if (id !== null) {
       clearInterval(id);
       this.intervalID.set(null);
-      this.stopTimer();
+    }
+  
+    const timerId = this.TIMER_ID();
+    if (timerId !== null) {
+      clearInterval(timerId);
+      this.TIMER_ID.set(null);
     }
   }
 
@@ -181,7 +191,6 @@ export class Snakegame {
   }
 
   public restartGame() {
-    this.intervalID.set(null);
     this.inGame.set(false);
     this.inParty.set(false);
     this.snake.set([116,115,114]);
@@ -190,7 +199,6 @@ export class Snakegame {
     this.points.set(0);
     this.timer.set(0);
     this.apples.set(0);
-    this.TIMER_ID.set(null);
   }
 
   public UpSnake() {
