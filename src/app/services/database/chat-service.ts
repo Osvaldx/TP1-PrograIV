@@ -15,7 +15,7 @@ export class ChatService {
     const { data, error } = await this.supabase.client
     .from('messages')
     .select('*')
-    .order('created_at', { ascending: true })
+    .order('created_at', { ascending: true }).limit(10);
 
     if(error) throw error;
 
