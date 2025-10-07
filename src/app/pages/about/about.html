@@ -1,5 +1,5 @@
 <main class="bg-gradient-to-br from-blue-100 to-blue-200 w-full h-screen">
-    <section class="w-full flex justify-center py-10 max-sm:py-5">
+    <section class="w-full flex flex-col items-center gap-5 justify-center py-10 max-sm:py-5">
         <div class="flex flex-col justify-center items-center gap-3 drop-shadow-xl/25 bg-white border-black border-2 rounded-2xl px-15 py-10 max-sm:px-10 mx-1 border-none">
             @if (profile) {
                 <div class="max-w-xl flex gap-3 max-sm:flex-col items-center">
@@ -37,5 +37,21 @@
                 <h2>Loading....</h2>
             }
         </div>
+        <div class="flex flex-col justify-center items-center gap-3 drop-shadow-xl/25 bg-white border-black border-2 rounded-2xl px-8 py-10 max-sm:px-6 mx-1 border-none max-w-2xl w-full">
+            <img class="size-28 rounded-2xl shadow-md" src="../../../assets/games/snake.png" alt="Snake Game">
+            <h2 class="text-xl sm:text-2xl font-bold text-blue-900 text-center">Juego Propio: Snake Game</h2>
+            <p class="text-gray-800 text-sm sm:text-base text-center max-w-md leading-relaxed">
+              Elegí este juego porque soy muy fanático de él y lo intenté recrear, de la forma más simple posible.
+            </p>
+            <p class="text-gray-600 text-sm text-center max-w-md leading-relaxed">
+              Este juego trata de controlar una serpiente e ir comiendo manzanas para crecer.
+            </p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 text-gray-800 text-sm max-w-md text-center">
+              <p class="font-semibold">Reglas:</p>
+              <p>1. No chocar con las paredes</p>
+              <p>2. No chocar con tu propia cola</p>
+            </div>
+          </div>
+          
     </section>
 </main>
