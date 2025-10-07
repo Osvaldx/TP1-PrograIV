@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Auth } from '../../services/database/auth';
 import { ToastManager } from '../../services/toast-manager';
+import { ScaleBtnDirective } from '../../directives/scale-btn-directive';
 
 export interface UserData {
   email: string,
@@ -10,7 +11,7 @@ export interface UserData {
 
 @Component({
   selector: 'app-nav',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, ScaleBtnDirective],
   templateUrl: './nav.html',
   styleUrl: './nav.css'
 })
@@ -49,13 +50,8 @@ export class Nav {
     if(!error) {
       this.authService.resetUser();
       this.toastManager.show("success", "Se cerro la sesion correctamente", true, 3000);
-      this.sendLogin();
     } else {
       this.toastManager.show("error", "Algo ocurrio, intente más tarde", true, 3000);
     }
-  }
-
-  public sendLogin() {
-    return this.router.navigateByUrl('/auth/login', { replaceUrl: true });
   }
 }

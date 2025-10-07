@@ -3,6 +3,7 @@ import { authGuard } from './guards/auth-guard';
 import { MainLayout } from './layouts/main-layout/main-layout';
 import { GamesLayout } from './layouts/games-layout/games-layout';
 import { gamesGuard } from './guards/games-guard';
+import { confirmExitGuard } from './guards/confirm-exit-guard';
 
 export const routes: Routes = [
     {
@@ -10,7 +11,8 @@ export const routes: Routes = [
         component: MainLayout,
         children: [
             { path: "", loadComponent: () => import('./pages/home/home').then(m => m.Home) },
-            { path: "about", loadComponent: () => import('./pages/about/about').then(m => m.About) }
+            { path: "about", loadComponent: () => import('./pages/about/about').then(m => m.About) },
+            { path: "results", loadComponent: () => import("./pages/results/results").then(m => m.Results) }
         ]
     },
     {
@@ -26,10 +28,10 @@ export const routes: Routes = [
         component: GamesLayout,
         canMatch: [gamesGuard],
         children: [
-            { path: "ahorcado", loadComponent: () => import('./pages/games/ahorcado/ahorcado').then(m => m.Ahorcado) },
-            { path: "mayoromenor", loadComponent: () => import('./pages/games/mayoromenor/mayoromenor').then(m => m.Mayoromenor) },
-            { path: "preguntados", loadComponent: () => import('./pages/games/preguntados/preguntados').then(m => m.Preguntados) },
-            { path: "snake", loadComponent: () => import('./pages/games/snakegame/snakegame').then(m => m.Snakegame) }
+            { path: "ahorcado", canDeactivate: [confirmExitGuard], loadComponent: () => import('./pages/games/ahorcado/ahorcado').then(m => m.Ahorcado) },
+            { path: "mayoromenor", canDeactivate: [confirmExitGuard], loadComponent: () => import('./pages/games/mayoromenor/mayoromenor').then(m => m.Mayoromenor) },
+            { path: "preguntados", canDeactivate: [confirmExitGuard], loadComponent: () => import('./pages/games/preguntados/preguntados').then(m => m.Preguntados) },
+            { path: "snake", canDeactivate: [confirmExitGuard], loadComponent: () => import('./pages/games/snakegame/snakegame').then(m => m.Snakegame) }
         ]
     },
     

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MayorMenor } from './mayor-menor';
+import { PreguntadosService } from './preguntados-service';
 
-describe('MayorMenor', () => {
-  let service: MayorMenor;
+describe('PreguntadosService', () => {
+  let service: PreguntadosService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MayorMenor);
+    service = TestBed.inject(PreguntadosService);
   });
 
   it('should be created', () => {

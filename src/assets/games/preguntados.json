@@ -1,0 +1,970 @@
+{
+  "programación": [
+    {
+      "id": 0,
+      "pregunta": "¿Qué significa HTML?",
+      "opciones": ["HyperText Markup Language", "HighText Machine Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language"],
+      "respuestaCorrecta": "HyperText Markup Language"
+    },
+    {
+      "id": 1,
+      "pregunta": "¿Qué significa CSS?",
+      "opciones": ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style System", "Colorful Style Syntax"],
+      "respuestaCorrecta": "Cascading Style Sheets"
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Qué tipo de lenguaje es JavaScript?",
+      "opciones": ["Compilado", "Interpretado", "Binario", "Ensamblador"],
+      "respuestaCorrecta": "Interpretado"
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Qué palabra clave se usa en JavaScript para declarar una constante?",
+      "opciones": ["let", "var", "const", "define"],
+      "respuestaCorrecta": "const"
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cuál es el operador de igualdad estricta en JavaScript?",
+      "opciones": ["==", "===", "=", "!="],
+      "respuestaCorrecta": "==="
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Qué significa SQL?",
+      "opciones": ["Structured Query Language", "Simple Query Language", "Standard Question Language", "System Query Level"],
+      "respuestaCorrecta": "Structured Query Language"
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Qué método de JavaScript selecciona un elemento por ID?",
+      "opciones": ["getId()", "getElementById()", "querySelector()", "findById()"],
+      "respuestaCorrecta": "getElementById()"
+    },
+    {
+      "id": 7,
+      "pregunta": "¿En qué lenguaje está escrito el núcleo de Linux?",
+      "opciones": ["Java", "Python", "C", "C++"],
+      "respuestaCorrecta": "C"
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Qué significa JSON?",
+      "opciones": ["Java Standard Output Name", "JavaScript Object Notation", "Java Syntax Object Network", "Java Structured Oriented Notation"],
+      "respuestaCorrecta": "JavaScript Object Notation"
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Qué significa API?",
+      "opciones": ["Application Programming Interface", "Advanced Program Integration", "Automated Process Interaction", "Application Protocol Internet"],
+      "respuestaCorrecta": "Application Programming Interface"
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Qué comando de Git crea una nueva rama?",
+      "opciones": ["git checkout", "git init", "git branch", "git merge"],
+      "respuestaCorrecta": "git branch"
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Qué significa IDE?",
+      "opciones": ["Interactive Debugging Engine", "Integrated Development Environment", "Internal Data Execution", "Integrated Debugging Extension"],
+      "respuestaCorrecta": "Integrated Development Environment"
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Qué extensión tienen los archivos de TypeScript?",
+      "opciones": [".js", ".ts", ".tsx", ".json"],
+      "respuestaCorrecta": ".ts"
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Qué framework de JavaScript usa JSX?",
+      "opciones": ["Angular", "Vue", "React", "Svelte"],
+      "respuestaCorrecta": "React"
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Qué operador lógico representa 'AND' en JavaScript?",
+      "opciones": ["||", "&&", "!", "and"],
+      "respuestaCorrecta": "&&"
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Qué palabra clave se usa en Python para definir una función?",
+      "opciones": ["def", "func", "function", "define"],
+      "respuestaCorrecta": "def"
+    },
+    {
+      "id": 16,
+      "pregunta": "¿Qué estructura de datos en Python se define con []?",
+      "opciones": ["Diccionario", "Lista", "Tupla", "Set"],
+      "respuestaCorrecta": "Lista"
+    },
+    {
+      "id": 17,
+      "pregunta": "¿Qué comando de Git sube los cambios al repositorio remoto?",
+      "opciones": ["git commit", "git push", "git pull", "git add"],
+      "respuestaCorrecta": "git push"
+    },
+    {
+      "id": 18,
+      "pregunta": "¿Qué significa DOM?",
+      "opciones": ["Data Object Management", "Document Object Model", "Document Online Mode", "Digital Object Map"],
+      "respuestaCorrecta": "Document Object Model"
+    },
+    {
+      "id": 19,
+      "pregunta": "¿Cuál es el lenguaje nativo de los navegadores web?",
+      "opciones": ["Java", "C#", "Python", "JavaScript"],
+      "respuestaCorrecta": "JavaScript"
+    },
+    {
+      "id": 20,
+      "pregunta": "¿Qué significa HTTP?",
+      "opciones": ["Hyper Transfer Text Protocol", "HyperText Transfer Protocol", "HyperText Transmission Process", "Hyper Tool Transfer Protocol"],
+      "respuestaCorrecta": "HyperText Transfer Protocol"
+    },
+    {
+      "id": 21,
+      "pregunta": "¿Qué significa URL?",
+      "opciones": ["Uniform Resource Locator", "Universal Record Link", "Unique Reference Line", "Unified Resource Language"],
+      "respuestaCorrecta": "Uniform Resource Locator"
+    },
+    {
+      "id": 22,
+      "pregunta": "¿Qué significa OOP?",
+      "opciones": ["Object-Oriented Programming", "Open Operation Process", "Overlapping Output Procedure", "Optimized Object Parsing"],
+      "respuestaCorrecta": "Object-Oriented Programming"
+    },
+    {
+      "id": 23,
+      "pregunta": "¿Qué significa API REST?",
+      "opciones": ["Representational State Transfer", "Ready State Transmission", "Resource Secure Transfer", "Runtime System Tool"],
+      "respuestaCorrecta": "Representational State Transfer"
+    },
+    {
+      "id": 24,
+      "pregunta": "¿Qué tipo de base de datos es MongoDB?",
+      "opciones": ["Relacional", "Orientada a documentos", "En memoria", "Columnares"],
+      "respuestaCorrecta": "Orientada a documentos"
+    },
+    {
+      "id": 25,
+      "pregunta": "¿Cuál es el sistema de control de versiones más usado?",
+      "opciones": ["SVN", "Mercurial", "Git", "CVS"],
+      "respuestaCorrecta": "Git"
+    },
+    {
+      "id": 26,
+      "pregunta": "¿Qué significa SaaS?",
+      "opciones": ["Software as a Service", "System as a Service", "Security as a Solution", "Software and Storage"],
+      "respuestaCorrecta": "Software as a Service"
+    },
+    {
+      "id": 27,
+      "pregunta": "¿Qué empresa creó el lenguaje Go?",
+      "opciones": ["Microsoft", "Google", "Facebook", "Oracle"],
+      "respuestaCorrecta": "Google"
+    },
+    {
+      "id": 28,
+      "pregunta": "¿Qué significa CI/CD?",
+      "opciones": ["Continuous Integration / Continuous Deployment", "Centralized Input / Centralized Data", "Code Implementation / Code Debugging", "Controlled Integration / Continuous Data"],
+      "respuestaCorrecta": "Continuous Integration / Continuous Deployment"
+    },
+    {
+      "id": 29,
+      "pregunta": "¿Qué significa NoSQL?",
+      "opciones": ["Not only SQL", "Non Structured Query Language", "New Organized SQL", "Normal SQL"],
+      "respuestaCorrecta": "Not only SQL"
+    },
+    {
+      "id": 30,
+      "pregunta": "¿Qué lenguaje se usa principalmente para la ciencia de datos?",
+      "opciones": ["Java", "C#", "Python", "PHP"],
+      "respuestaCorrecta": "Python"
+    },
+    {
+      "id": 31,
+      "pregunta": "¿Qué significa CRUD?",
+      "opciones": ["Create, Read, Update, Delete", "Connect, Run, Upload, Download", "Code, Run, Use, Debug", "Compile, Render, Update, Deploy"],
+      "respuestaCorrecta": "Create, Read, Update, Delete"
+    },
+    {
+      "id": 32,
+      "pregunta": "¿Qué motor usa Node.js?",
+      "opciones": ["SpiderMonkey", "Chakra", "V8", "Rhino"],
+      "respuestaCorrecta": "V8"
+    },
+    {
+      "id": 33,
+      "pregunta": "¿Qué extensión tienen los archivos de Java?",
+      "opciones": [".jav", ".j", ".java", ".class"],
+      "respuestaCorrecta": ".java"
+    },
+    {
+      "id": 34,
+      "pregunta": "¿Qué significa DNS?",
+      "opciones": ["Domain Name System", "Data Network Server", "Domain Number Source", "Distributed Network Service"],
+      "respuestaCorrecta": "Domain Name System"
+    },
+    {
+      "id": 35,
+      "pregunta": "¿Cuál de estos no es un sistema operativo?",
+      "opciones": ["Linux", "Windows", "MySQL", "macOS"],
+      "respuestaCorrecta": "MySQL"
+    },
+    {
+      "id": 36,
+      "pregunta": "¿Qué significa UX?",
+      "opciones": ["User Experience", "Universal Extension", "Utility Exchange", "Unified Execution"],
+      "respuestaCorrecta": "User Experience"
+    },
+    {
+      "id": 37,
+      "pregunta": "¿Qué significa CSS Grid?",
+      "opciones": ["Un sistema de diseño bidimensional", "Un framework de estilos", "Un lenguaje de programación", "Un tipo de animación"],
+      "respuestaCorrecta": "Un sistema de diseño bidimensional"
+    },
+    {
+      "id": 38,
+      "pregunta": "¿Qué significa npm?",
+      "opciones": ["Node Package Manager", "Network Project Manager", "New Program Manager", "Node Process Machine"],
+      "respuestaCorrecta": "Node Package Manager"
+    },
+    {
+      "id": 39,
+      "pregunta": "¿Cuál de estos frameworks es de PHP?",
+      "opciones": ["Laravel", "Django", "Spring", "Rails"],
+      "respuestaCorrecta": "Laravel"
+    }
+  ],
+  "países": [
+    {
+      "id": 0,
+      "pregunta": "¿Cuál es la capital de Francia?",
+      "opciones": ["Madrid", "París", "Roma", "Berlín"],
+      "respuestaCorrecta": "París"
+    },
+    {
+      "id": 1,
+      "pregunta": "¿Cuál es la capital de Japón?",
+      "opciones": ["Seúl", "Tokio", "Pekín", "Osaka"],
+      "respuestaCorrecta": "Tokio"
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Cuál es el país más grande del mundo?",
+      "opciones": ["EE.UU.", "Rusia", "China", "Canadá"],
+      "respuestaCorrecta": "Rusia"
+    },
+    {
+      "id": 3,
+      "pregunta": "¿En qué continente está Egipto?",
+      "opciones": ["Asia", "África", "Europa", "América"],
+      "respuestaCorrecta": "África"
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cuál es el río más largo del mundo?",
+      "opciones": ["Amazonas", "Nilo", "Yangtsé", "Misisipi"],
+      "respuestaCorrecta": "Amazonas"
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Cuál es el océano más grande?",
+      "opciones": ["Atlántico", "Índico", "Pacífico", "Ártico"],
+      "respuestaCorrecta": "Pacífico"
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Qué país ganó el Mundial de Fútbol 2014?",
+      "opciones": ["Argentina", "Brasil", "Alemania", "España"],
+      "respuestaCorrecta": "Alemania"
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Cuál es la capital de Australia?",
+      "opciones": ["Sídney", "Melbourne", "Canberra", "Brisbane"],
+      "respuestaCorrecta": "Canberra"
+    },
+    {
+      "id": 8,
+      "pregunta": "¿En qué país está la Torre Eiffel?",
+      "opciones": ["Italia", "España", "Francia", "Bélgica"],
+      "respuestaCorrecta": "Francia"
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Cuál es la capital de Canadá?",
+      "opciones": ["Toronto", "Vancouver", "Ottawa", "Montreal"],
+      "respuestaCorrecta": "Ottawa"
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Cuál es la capital de Brasil?",
+      "opciones": ["Río de Janeiro", "São Paulo", "Brasilia", "Salvador"],
+      "respuestaCorrecta": "Brasilia"
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Cuál es la capital de Alemania?",
+      "opciones": ["Berlín", "Múnich", "Hamburgo", "Fráncfort"],
+      "respuestaCorrecta": "Berlín"
+    },
+    {
+      "id": 12,
+      "pregunta": "¿En qué país se encuentra Machu Picchu?",
+      "opciones": ["México", "Perú", "Colombia", "Ecuador"],
+      "respuestaCorrecta": "Perú"
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Cuál es la capital de España?",
+      "opciones": ["Barcelona", "Sevilla", "Madrid", "Valencia"],
+      "respuestaCorrecta": "Madrid"
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Cuál es la capital de Italia?",
+      "opciones": ["Venecia", "Florencia", "Roma", "Milán"],
+      "respuestaCorrecta": "Roma"
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Cuál es la capital de México?",
+      "opciones": ["Guadalajara", "Ciudad de México", "Monterrey", "Puebla"],
+      "respuestaCorrecta": "Ciudad de México"
+    },
+    {
+      "id": 16,
+      "pregunta": "¿Cuál es el país más poblado del mundo?",
+      "opciones": ["India", "China", "EE.UU.", "Rusia"],
+      "respuestaCorrecta": "China"
+    },
+    {
+      "id": 17,
+      "pregunta": "¿Cuál es el país más pequeño del mundo?",
+      "opciones": ["Mónaco", "San Marino", "Liechtenstein", "Ciudad del Vaticano"],
+      "respuestaCorrecta": "Ciudad del Vaticano"
+    },
+    {
+      "id": 18,
+      "pregunta": "¿Cuál es la capital de Argentina?",
+      "opciones": ["Córdoba", "Rosario", "Buenos Aires", "Mendoza"],
+      "respuestaCorrecta": "Buenos Aires"
+    },
+    {
+      "id": 19,
+      "pregunta": "¿En qué continente está Islandia?",
+      "opciones": ["América", "África", "Europa", "Asia"],
+      "respuestaCorrecta": "Europa"
+    },
+    {
+      "id": 20,
+      "pregunta": "¿Cuál es la capital de Sudáfrica?",
+      "opciones": ["Pretoria", "Johannesburgo", "Ciudad del Cabo", "Durban"],
+      "respuestaCorrecta": "Pretoria"
+    },
+    {
+      "id": 21,
+      "pregunta": "¿En qué continente está Mongolia?",
+      "opciones": ["Europa", "Asia", "África", "Oceanía"],
+      "respuestaCorrecta": "Asia"
+    },
+    {
+      "id": 22,
+      "pregunta": "¿Cuál es la capital de Turquía?",
+      "opciones": ["Estambul", "Ankara", "Izmir", "Bursa"],
+      "respuestaCorrecta": "Ankara"
+    },
+    {
+      "id": 23,
+      "pregunta": "¿Qué país es conocido como 'la bota'?",
+      "opciones": ["España", "Portugal", "Italia", "Grecia"],
+      "respuestaCorrecta": "Italia"
+    },
+    {
+      "id": 24,
+      "pregunta": "¿Cuál es el país con más islas del mundo?",
+      "opciones": ["Suecia", "Indonesia", "Filipinas", "Japón"],
+      "respuestaCorrecta": "Suecia"
+    },
+    {
+      "id": 25,
+      "pregunta": "¿Cuál es la capital de Noruega?",
+      "opciones": ["Oslo", "Helsinki", "Copenhague", "Estocolmo"],
+      "respuestaCorrecta": "Oslo"
+    },
+    {
+      "id": 26,
+      "pregunta": "¿Qué país tiene forma de 'Largo y angosto' en Sudamérica?",
+      "opciones": ["Chile", "Argentina", "Uruguay", "Perú"],
+      "respuestaCorrecta": "Chile"
+    },
+    {
+      "id": 27,
+      "pregunta": "¿Cuál es la capital de Marruecos?",
+      "opciones": ["Casablanca", "Marrakech", "Rabat", "Tánger"],
+      "respuestaCorrecta": "Rabat"
+    },
+    {
+      "id": 28,
+      "pregunta": "¿Qué país tiene como moneda el 'yen'?",
+      "opciones": ["China", "Corea del Sur", "Japón", "Vietnam"],
+      "respuestaCorrecta": "Japón"
+    },
+    {
+      "id": 29,
+      "pregunta": "¿En qué continente está Nueva Zelanda?",
+      "opciones": ["Europa", "Oceanía", "Asia", "África"],
+      "respuestaCorrecta": "Oceanía"
+    },
+    {
+      "id": 30,
+      "pregunta": "¿Cuál es la capital de Corea del Sur?",
+      "opciones": ["Seúl", "Pekín", "Busan", "Incheon"],
+      "respuestaCorrecta": "Seúl"
+    },
+    {
+      "id": 31,
+      "pregunta": "¿Cuál es el país más extenso de América del Sur?",
+      "opciones": ["Brasil", "Argentina", "Perú", "Colombia"],
+      "respuestaCorrecta": "Brasil"
+    },
+    {
+      "id": 32,
+      "pregunta": "¿Cuál es la capital de Grecia?",
+      "opciones": ["Atenas", "Salónica", "Heraclión", "Patras"],
+      "respuestaCorrecta": "Atenas"
+    },
+    {
+      "id": 33,
+      "pregunta": "¿Qué país está dividido en cantones?",
+      "opciones": ["Suiza", "Bélgica", "Holanda", "Dinamarca"],
+      "respuestaCorrecta": "Suiza"
+    },
+    {
+      "id": 34,
+      "pregunta": "¿Cuál es la capital de India?",
+      "opciones": ["Bombay", "Nueva Delhi", "Calcuta", "Bangalore"],
+      "respuestaCorrecta": "Nueva Delhi"
+    },
+    {
+      "id": 35,
+      "pregunta": "¿Qué país africano tiene forma de triángulo invertido?",
+      "opciones": ["Nigeria", "Sudáfrica", "Namibia", "Botsuana"],
+      "respuestaCorrecta": "Botsuana"
+    },
+    {
+      "id": 36,
+      "pregunta": "¿Cuál es la capital de Suecia?",
+      "opciones": ["Copenhague", "Estocolmo", "Oslo", "Helsinki"],
+      "respuestaCorrecta": "Estocolmo"
+    },
+    {
+      "id": 37,
+      "pregunta": "¿En qué país se encuentra Petra?",
+      "opciones": ["Egipto", "Turquía", "Jordania", "Grecia"],
+      "respuestaCorrecta": "Jordania"
+    },
+    {
+      "id": 38,
+      "pregunta": "¿Qué país tiene como símbolo el canguro?",
+      "opciones": ["Australia", "Nueva Zelanda", "Sudáfrica", "Canadá"],
+      "respuestaCorrecta": "Australia"
+    },
+    {
+      "id": 39,
+      "pregunta": "¿Cuál es la capital de Polonia?",
+      "opciones": ["Varsovia", "Cracovia", "Gdansk", "Lodz"],
+      "respuestaCorrecta": "Varsovia"
+    }
+  ],
+  "animales": [
+    {
+      "id": 0,
+      "pregunta": "¿Cuál es el animal más rápido del mundo?",
+      "opciones": ["Guepardo", "Halcón peregrino", "León", "Tigre"],
+      "respuestaCorrecta": "Halcón peregrino"
+    },
+    {
+      "id": 1,
+      "pregunta": "¿Qué animal es conocido como 'el rey de la selva'?",
+      "opciones": ["León", "Tigre", "Elefante", "Gorila"],
+      "respuestaCorrecta": "León"
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Cuál es el mamífero más grande del mundo?",
+      "opciones": ["Ballena azul", "Orca", "Tiburón ballena", "Elefante africano"],
+      "respuestaCorrecta": "Ballena azul"
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuál es el único mamífero que puede volar?",
+      "opciones": ["Murciélago", "Colibrí", "Águila", "Pingüino"],
+      "respuestaCorrecta": "Murciélago"
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cuántas patas tiene una araña?",
+      "opciones": ["6", "8", "10", "12"],
+      "respuestaCorrecta": "8"
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Cuál es el animal terrestre más grande?",
+      "opciones": ["Elefante africano", "Jirafa", "Hipopótamo", "Rinoceronte"],
+      "respuestaCorrecta": "Elefante africano"
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Qué animal pone los huevos más grandes?",
+      "opciones": ["Gallina", "Pingüino emperador", "Avestruz", "Pato"],
+      "respuestaCorrecta": "Avestruz"
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Cuál es el ave más grande del mundo?",
+      "opciones": ["Cóndor", "Avestruz", "Águila real", "Pelícano"],
+      "respuestaCorrecta": "Avestruz"
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Qué animal tiene la picadura más venenosa?",
+      "opciones": ["Medusa avispa de mar", "Escorpión", "Viuda negra", "Cobra real"],
+      "respuestaCorrecta": "Medusa avispa de mar"
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Qué animal es el más longevo?",
+      "opciones": ["Tortuga gigante", "Elefante", "Ballena azul", "Cóndor"],
+      "respuestaCorrecta": "Tortuga gigante"
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Qué animal es símbolo de Australia?",
+      "opciones": ["Canguro", "Koala", "Emú", "Dingo"],
+      "respuestaCorrecta": "Canguro"
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Qué animal produce la seda?",
+      "opciones": ["Araña", "Gusano de seda", "Mariposa", "Escarabajo"],
+      "respuestaCorrecta": "Gusano de seda"
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Cuál es el reptil más grande del mundo?",
+      "opciones": ["Cocodrilo marino", "Dragón de Komodo", "Anaconda", "Iguana verde"],
+      "respuestaCorrecta": "Cocodrilo marino"
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Cuál es el animal más pequeño del mundo?",
+      "opciones": ["Ratón pigmeo", "Colibrí abeja", "Insecto palo", "Rana Paedophryne"],
+      "respuestaCorrecta": "Rana Paedophryne"
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Cuál es el felino más grande?",
+      "opciones": ["León", "Leopardo", "Tigre", "Jaguar"],
+      "respuestaCorrecta": "Tigre"
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Qué pez puede vivir tanto en agua dulce como salada?",
+      "opciones": ["Salmón", "Trucha", "Delfín", "Atún"],
+      "respuestaCorrecta": "Salmón"
+    },
+    {
+      "id": 16,
+      "pregunta": "¿Qué animal tiene tres corazones?",
+      "opciones": ["Pulpo", "Cangrejo", "Ballena", "Tiburón"],
+      "respuestaCorrecta": "Pulpo"
+    },
+    {
+      "id": 17,
+      "pregunta": "¿Qué animal es considerado el más inteligente del océano?",
+      "opciones": ["Delfín", "Orca", "Pulpo", "Calamar"],
+      "respuestaCorrecta": "Delfín"
+    },
+    {
+      "id": 18,
+      "pregunta": "¿Cuál es el animal más fuerte en relación a su tamaño?",
+      "opciones": ["Hormiga", "Escarabajo rinoceronte", "Pulga", "Araña"],
+      "respuestaCorrecta": "Escarabajo rinoceronte"
+    },
+    {
+      "id": 19,
+      "pregunta": "¿Cuál es el animal nacional de China?",
+      "opciones": ["Dragón", "Panda gigante", "Tigre", "Grulla"],
+      "respuestaCorrecta": "Panda gigante"
+    },
+    {
+      "id": 20,
+      "pregunta": "¿Qué animal puede dormir de pie?",
+      "opciones": ["Caballo", "Gato", "Perro", "Delfín"],
+      "respuestaCorrecta": "Caballo"
+    },
+    {
+      "id": 21,
+      "pregunta": "¿Qué insecto produce miel?",
+      "opciones": ["Abeja", "Avispa", "Hormiga", "Mariposa"],
+      "respuestaCorrecta": "Abeja"
+    },
+    {
+      "id": 22,
+      "pregunta": "¿Cuál es el animal más venenoso del planeta?",
+      "opciones": ["Rana dorada", "Cobra real", "Escorpión de muerte", "Medusa avispa de mar"],
+      "respuestaCorrecta": "Rana dorada"
+    },
+    {
+      "id": 23,
+      "pregunta": "¿Qué animal es el símbolo de WWF?",
+      "opciones": ["Elefante", "Panda gigante", "Tigre", "Oso polar"],
+      "respuestaCorrecta": "Panda gigante"
+    },
+    {
+      "id": 24,
+      "pregunta": "¿Qué mamífero marino tiene un cuerno parecido a un unicornio?",
+      "opciones": ["Narval", "Orca", "Beluga", "Delfín"],
+      "respuestaCorrecta": "Narval"
+    },
+    {
+      "id": 25,
+      "pregunta": "¿Qué insecto es capaz de levantar 50 veces su peso?",
+      "opciones": ["Hormiga", "Abeja", "Escarabajo rinoceronte", "Mosca"],
+      "respuestaCorrecta": "Hormiga"
+    },
+    {
+      "id": 26,
+      "pregunta": "¿Cuál es el ave nacional de EE.UU.?",
+      "opciones": ["Águila real", "Águila calva", "Cóndor", "Búho"],
+      "respuestaCorrecta": "Águila calva"
+    },
+    {
+      "id": 27,
+      "pregunta": "¿Cuál es el mamífero terrestre más rápido?",
+      "opciones": ["Guepardo", "León", "Tigre", "Antílope"],
+      "respuestaCorrecta": "Guepardo"
+    },
+    {
+      "id": 28,
+      "pregunta": "¿Cuál es el único marsupial de América del Norte?",
+      "opciones": ["Canguro", "Koala", "Zarigüeya", "Dingo"],
+      "respuestaCorrecta": "Zarigüeya"
+    },
+    {
+      "id": 29,
+      "pregunta": "¿Qué animal puede regenerar sus extremidades?",
+      "opciones": ["Estrella de mar", "Pulpo", "Cangrejo", "Lagarto"],
+      "respuestaCorrecta": "Estrella de mar"
+    },
+    {
+      "id": 30,
+      "pregunta": "¿Cuál es el único mamífero que pone huevos?",
+      "opciones": ["Ornitorrinco", "Murciélago", "Koala", "Erizo"],
+      "respuestaCorrecta": "Ornitorrinco"
+    },
+    {
+      "id": 31,
+      "pregunta": "¿Cuál es el tiburón más grande del mundo?",
+      "opciones": ["Tiburón blanco", "Tiburón martillo", "Tiburón ballena", "Tiburón tigre"],
+      "respuestaCorrecta": "Tiburón ballena"
+    },
+    {
+      "id": 32,
+      "pregunta": "¿Cuál es el animal que más duerme?",
+      "opciones": ["Perezoso", "Koala", "Gato", "Oso"],
+      "respuestaCorrecta": "Koala"
+    },
+    {
+      "id": 33,
+      "pregunta": "¿Qué pez es conocido por su capacidad eléctrica?",
+      "opciones": ["Anguila eléctrica", "Piraña", "Atún", "Carpa"],
+      "respuestaCorrecta": "Anguila eléctrica"
+    },
+    {
+      "id": 34,
+      "pregunta": "¿Cuál es el animal nacional de Canadá?",
+      "opciones": ["Alce", "Castor", "Oso polar", "Búfalo"],
+      "respuestaCorrecta": "Castor"
+    },
+    {
+      "id": 35,
+      "pregunta": "¿Qué animal puede cambiar de color para camuflarse?",
+      "opciones": ["Camaleón", "Pulpo", "Rana", "Lagartija"],
+      "respuestaCorrecta": "Camaleón"
+    },
+    {
+      "id": 36,
+      "pregunta": "¿Qué ave puede imitar sonidos humanos?",
+      "opciones": ["Cuervo", "Loro", "Canario", "Búho"],
+      "respuestaCorrecta": "Loro"
+    },
+    {
+      "id": 37,
+      "pregunta": "¿Cuál es el animal más grande de la Tierra?",
+      "opciones": ["Elefante africano", "Ballena azul", "Tiburón ballena", "Rinoceronte"],
+      "respuestaCorrecta": "Ballena azul"
+    },
+    {
+      "id": 38,
+      "pregunta": "¿Qué animal tiene lengua azul?",
+      "opciones": ["Gato siamés", "Perro chow chow", "Hipopótamo", "Gorila"],
+      "respuestaCorrecta": "Perro chow chow"
+    },
+    {
+      "id": 39,
+      "pregunta": "¿Qué insecto fue el primero en ir al espacio?",
+      "opciones": ["Mosca", "Abeja", "Hormiga", "Grillo"],
+      "respuestaCorrecta": "Mosca"
+    }
+  ],
+  "cultura general": [
+    {
+      "id": 0,
+      "pregunta": "¿Quién pintó la Mona Lisa?",
+      "opciones": ["Leonardo da Vinci", "Miguel Ángel", "Picasso", "Van Gogh"],
+      "respuestaCorrecta": "Leonardo da Vinci"
+    },
+    {
+      "id": 1,
+      "pregunta": "¿En qué año llegó el hombre a la Luna?",
+      "opciones": ["1969", "1975", "1959", "1981"],
+      "respuestaCorrecta": "1969"
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Quién escribió 'Hamlet'?",
+      "opciones": ["Dante Alighieri", "William Shakespeare", "Molière", "Cervantes"],
+      "respuestaCorrecta": "William Shakespeare"
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Qué significa la sigla ONU?",
+      "opciones": ["Organización de Naciones Unidas", "Oficina Nacional Unida", "Organización del Norte Unido", "Oficina de Naciones Unidas"],
+      "respuestaCorrecta": "Organización de Naciones Unidas"
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Quién desarrolló la teoría de la relatividad?",
+      "opciones": ["Newton", "Einstein", "Tesla", "Copérnico"],
+      "respuestaCorrecta": "Einstein"
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Cuál es el idioma más hablado del mundo?",
+      "opciones": ["Inglés", "Chino mandarín", "Español", "Árabe"],
+      "respuestaCorrecta": "Chino mandarín"
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Cuál es la montaña más alta del mundo?",
+      "opciones": ["K2", "Everest", "Aconcagua", "Kilimanjaro"],
+      "respuestaCorrecta": "Everest"
+    },
+    {
+      "id": 7,
+      "pregunta": "¿En qué país nació el tango?",
+      "opciones": ["Argentina", "Uruguay", "España", "México"],
+      "respuestaCorrecta": "Argentina"
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
+      "opciones": ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "John Adams"],
+      "respuestaCorrecta": "George Washington"
+    },
+    {
+      "id": 9,
+      "pregunta": "¿En qué país se originaron los Juegos Olímpicos?",
+      "opciones": ["Roma", "Grecia", "Francia", "Egipto"],
+      "respuestaCorrecta": "Grecia"
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Cuál es la capital de la moda?",
+      "opciones": ["París", "Milán", "Nueva York", "Londres"],
+      "respuestaCorrecta": "Milán"
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Qué obra famosa escribió Cervantes?",
+      "opciones": ["La Celestina", "El Quijote", "La vida es sueño", "Fuenteovejuna"],
+      "respuestaCorrecta": "El Quijote"
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Quién pintó 'La noche estrellada'?",
+      "opciones": ["Van Gogh", "Picasso", "Monet", "Dalí"],
+      "respuestaCorrecta": "Van Gogh"
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Cuál es la moneda oficial de Japón?",
+      "opciones": ["Yen", "Won", "Yuan", "Peso"],
+      "respuestaCorrecta": "Yen"
+    },
+    {
+      "id": 14,
+      "pregunta": "¿En qué ciudad está el Coliseo?",
+      "opciones": ["Atenas", "Roma", "París", "Estambul"],
+      "respuestaCorrecta": "Roma"
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Quién fue el creador de la Capilla Sixtina?",
+      "opciones": ["Leonardo da Vinci", "Miguel Ángel", "Rafael", "Donatello"],
+      "respuestaCorrecta": "Miguel Ángel"
+    },
+    {
+      "id": 16,
+      "pregunta": "¿En qué país se inventó la pizza moderna?",
+      "opciones": ["Francia", "Italia", "EE.UU.", "España"],
+      "respuestaCorrecta": "Italia"
+    },
+    {
+      "id": 17,
+      "pregunta": "¿Quién escribió 'Cien años de soledad'?",
+      "opciones": ["Gabriel García Márquez", "Pablo Neruda", "Mario Vargas Llosa", "Julio Cortázar"],
+      "respuestaCorrecta": "Gabriel García Márquez"
+    },
+    {
+      "id": 18,
+      "pregunta": "¿Cuál es la ciudad conocida como 'la Gran Manzana'?",
+      "opciones": ["Chicago", "Nueva York", "Los Ángeles", "Miami"],
+      "respuestaCorrecta": "Nueva York"
+    },
+    {
+      "id": 19,
+      "pregunta": "¿Qué instrumento tocaba Mozart?",
+      "opciones": ["Violín", "Clavicordio", "Piano", "Guitarra"],
+      "respuestaCorrecta": "Piano"
+    },
+    {
+      "id": 20,
+      "pregunta": "¿Cuál es el país con más habitantes del mundo?",
+      "opciones": ["China", "India", "EE.UU.", "Indonesia"],
+      "respuestaCorrecta": "India"
+    },
+    {
+      "id": 21,
+      "pregunta": "¿Quién inventó la bombilla eléctrica?",
+      "opciones": ["Edison", "Tesla", "Newton", "Franklin"],
+      "respuestaCorrecta": "Edison"
+    },
+    {
+      "id": 22,
+      "pregunta": "¿Qué idioma tiene más hablantes nativos?",
+      "opciones": ["Español", "Inglés", "Chino mandarín", "Árabe"],
+      "respuestaCorrecta": "Chino mandarín"
+    },
+    {
+      "id": 23,
+      "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
+      "opciones": ["1914", "1939", "1929", "1918"],
+      "respuestaCorrecta": "1914"
+    },
+    {
+      "id": 24,
+      "pregunta": "¿Quién escribió 'La Odisea'?",
+      "opciones": ["Homero", "Virgilio", "Sófocles", "Platón"],
+      "respuestaCorrecta": "Homero"
+    },
+    {
+      "id": 25,
+      "pregunta": "¿Qué planeta es conocido como el planeta rojo?",
+      "opciones": ["Venus", "Júpiter", "Marte", "Saturno"],
+      "respuestaCorrecta": "Marte"
+    },
+    {
+      "id": 26,
+      "pregunta": "¿Quién pintó 'Guernica'?",
+      "opciones": ["Picasso", "Dalí", "Miró", "Goya"],
+      "respuestaCorrecta": "Picasso"
+    },
+    {
+      "id": 27,
+      "pregunta": "¿Qué civilización construyó Machu Picchu?",
+      "opciones": ["Inca", "Maya", "Azteca", "Olmeca"],
+      "respuestaCorrecta": "Inca"
+    },
+    {
+      "id": 28,
+      "pregunta": "¿Cuál es la capital de Egipto?",
+      "opciones": ["El Cairo", "Alejandría", "Luxor", "Giza"],
+      "respuestaCorrecta": "El Cairo"
+    },
+    {
+      "id": 29,
+      "pregunta": "¿En qué país se encuentra la Torre de Pisa?",
+      "opciones": ["Francia", "España", "Italia", "Suiza"],
+      "respuestaCorrecta": "Italia"
+    },
+    {
+      "id": 30,
+      "pregunta": "¿Cuál es el océano más profundo?",
+      "opciones": ["Atlántico", "Índico", "Pacífico", "Ártico"],
+      "respuestaCorrecta": "Pacífico"
+    },
+    {
+      "id": 31,
+      "pregunta": "¿Quién fue Napoleón Bonaparte?",
+      "opciones": ["Un emperador francés", "Un rey español", "Un filósofo alemán", "Un general inglés"],
+      "respuestaCorrecta": "Un emperador francés"
+    },
+    {
+      "id": 32,
+      "pregunta": "¿Qué país inventó la pólvora?",
+      "opciones": ["China", "India", "Alemania", "Egipto"],
+      "respuestaCorrecta": "China"
+    },
+    {
+      "id": 33,
+      "pregunta": "¿Qué famoso científico propuso las leyes del movimiento?",
+      "opciones": ["Newton", "Einstein", "Galileo", "Copérnico"],
+      "respuestaCorrecta": "Newton"
+    },
+    {
+      "id": 34,
+      "pregunta": "¿Qué instrumento mide la presión atmosférica?",
+      "opciones": ["Barómetro", "Termómetro", "Higrómetro", "Anemómetro"],
+      "respuestaCorrecta": "Barómetro"
+    },
+    {
+      "id": 35,
+      "pregunta": "¿Qué país ganó el Mundial 2010?",
+      "opciones": ["Brasil", "Alemania", "España", "Italia"],
+      "respuestaCorrecta": "España"
+    },
+    {
+      "id": 36,
+      "pregunta": "¿Quién escribió 'El Principito'?",
+      "opciones": ["Antoine de Saint-Exupéry", "Julio Verne", "Victor Hugo", "Balzac"],
+      "respuestaCorrecta": "Antoine de Saint-Exupéry"
+    },
+    {
+      "id": 37,
+      "pregunta": "¿Cuál es el metal más ligero?",
+      "opciones": ["Litio", "Aluminio", "Plata", "Magnesio"],
+      "respuestaCorrecta": "Litio"
+    },
+    {
+      "id": 38,
+      "pregunta": "¿En qué país nació Mozart?",
+      "opciones": ["Alemania", "Austria", "Italia", "Polonia"],
+      "respuestaCorrecta": "Austria"
+    },
+    {
+      "id": 39,
+      "pregunta": "¿Qué país tiene como símbolo el tulipán?",
+      "opciones": ["Holanda", "Francia", "Bélgica", "Suiza"],
+      "respuestaCorrecta": "Holanda"
+    }
+  ]
+}

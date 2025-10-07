@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GameAhorcado } from './game-ahorcado';
+import { TablesDB } from './tables-db';
 
-describe('GameAhorcado', () => {
-  let service: GameAhorcado;
+describe('TablesDB', () => {
+  let service: TablesDB;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GameAhorcado);
+    service = TestBed.inject(TablesDB);
   });
 
   it('should be created', () => {
