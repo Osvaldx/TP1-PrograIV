@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
-import { MayorMenor } from '../../../services/database/mayor-menor';
 import { CardFormat } from '../../../interfaces/card-format';
 import { ToastManager } from '../../../services/toast-manager';
 import { CanExit } from '../../../interfaces/can-exit';
+import { GamesService } from '../../../services/database/games-service';
+import { GamesType } from '../../../enums/games-type';
+import { DetailsMayoromenor } from '../../../interfaces/details-mayoromenor';
 
 @Component({
   selector: 'app-mayoromenor',
@@ -19,7 +21,10 @@ export class Mayoromenor implements OnInit, OnDestroy, CanExit{
   public currentCard = signal<CardFormat | null>(null);
   public inGame = signal<boolean>(true);
 
-  constructor(private gameCards: MayorMenor, protected toast: ToastManager) {}
+  constructor(
+    protected toast: ToastManager,
+    private gameDB: GamesService
+  ) {}
 
   ngOnDestroy(): void {
     this.errors.set(0);
@@ -35,7 +40,7 @@ export class Mayoromenor implements OnInit, OnDestroy, CanExit{
   }
   
   public async generateCards(): Promise<void> {
-    this.cards = await this.gameCards.getCards();
+    this.cards = await this.gameDB.getCardsMayorOMenor();
   }
 
   private choiceRandomCard(): void {
@@ -71,7 +76,7 @@ export class Mayoromenor implements OnInit, OnDestroy, CanExit{
 
     if(this.isDisabled) {
       this.inGame.set(false);
-      this.saveStats();
+      this.saveStats((this.racha() >= 50) ? true : false);
     }
   }
 
@@ -98,8 +103,8 @@ export class Mayoromenor implements OnInit, OnDestroy, CanExit{
     this.inGame.set(true);
   }
 
-  private saveStats() {
-    this.gameCards.savePlayerData(this.racha(), this.errors(), this.points());
+  private saveStats(winner: boolean) {
+    this.gameDB.insertStats(GamesType.mayoromenor, this.points(), winner, { correctCards: this.racha(), errors: this.errors() } as DetailsMayoromenor)
   }
 
 }
