@@ -7,6 +7,7 @@
         <div class="hidden sm:flex gap-5">
             <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
             <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Quien soy</button>
+            <button class="cursor-pointer" routerLink="/results" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Top Mundiales</button>
         </div>
         @if(hideButton) {
             <div class="flex gap-5">
@@ -35,7 +36,7 @@
             </div>
         }
     </div>
-    <div class="flex flex-col items-center p-1 overflow-hidden-all ease-in-out md:hidden gap-2"
+    <div class="flex flex-col items-center p-1 overflow-hidden transition-all ease-in-out md:hidden gap-2"
     [class.max-h-0] = !this.hide
     [class.max-h-96] = this.hide>
         <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
@@ -44,7 +45,7 @@
             <button class="cursor-pointer bg-yellow-400 w-fit px-2 py-1 border border-none text-blue-800 rounded" (click)="signOut()" appScaleBtnDirective>Cerrar Sesion</button>
         } @else {
             <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-blue-900 rounded-2xl max-sm:text-sm" routerLink="/auth/login" appScaleBtnDirective>Iniciar Sesion</button>
-            <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-blue-900 rounded-2x max-sm:text-sm" routerLink="/auth/register" appScaleBtnDirective>Registrarse</button>
+            <button class="cursor-pointer bg-yellow-400 py-1 px-2 border border-none text-blue-900 rounded-2xl max-sm:text-sm" routerLink="/auth/register" appScaleBtnDirective>Registrarse</button>
         }
     </div>
 </nav>
