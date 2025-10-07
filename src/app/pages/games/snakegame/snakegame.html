@@ -1,1 +1,37 @@
-<p>snakegame works!</p>
+<main class="w-full min-h-screen flex flex-col items-center justify-center p-6 bg-blue-100 gap-2 max-sm:gap-1 max-sm:">
+    <div class="bg-white rounded-2xl shadow-2xl border border-blue-100 p-5 flex flex-col text-center gap-3 max-sm:p-3">
+        <h2 class="font-bold text-4xl text-red-700 max-sm:text-xl">SNAKE GAME</h2>
+        @if (inGame()) {
+            <div class="grid grid-cols-3 gap-5">
+                <p class="font-semibold">Puntos: <span class="font-bold text-green-600">{{points()}}</span></p>
+                <p class="font-semibold">Tiempo: <span class="text-blue-500 font-bold">{{timer()}}s</span></p>
+                <p class="font-semibold">Manzanas: <span class="font-bold text-red-500">{{apples()}}</span></p>
+            </div>
+        } @else {
+            <button (click)="start()" class="bg-green-600 py-2 rounded-2xl text-2xl font-bold text-white cursor-pointer max-sm:text-xl max-sm:py-1 active:scale-95" appScaleBtnDirective>Jugar</button>
+        }
+        @if (!inParty() && inGame()) {
+            <button (click)="restartGame()" class="bg-red-600 py-2 rounded-2xl text-2xl font-bold text-white cursor-pointer active:scale-95" appScaleBtnDirective>Reiniciar</button>
+        }
+    </div>
+    <section class="bg-white rounded-2xl shadow-2xl border border-blue-100 p-8 max-sm:p-4 text-center">
+        <div class="border border-black w-fit h-fit">
+            <div class="bg-gray-500 grid grid-cols-16 gap-[2px]">
+                @for (cell of cells(); track $index) {
+                    <div class="rounded-sm size-6 max-sm:size-4" appSnakeCell [index]="$index"></div>
+                }
+            </div>
+        </div>
+    </section>
+    <div class="grid grid-cols-3 bg-white rounded-2xl p-2 min-sm:hidden">
+        <div></div>
+        <button [disabled]="!this.inParty()" (click)="UpSnake()" class="bg-blue-300 p-3 rounded-2xl shadow-md active:scale-95 active:transition-transform delay-100 active:bg-green-300">⬆️</button>
+        <div></div>
+        <button [disabled]="!this.inParty()" (click)="LeftSnake()" class="bg-blue-300 p-3 rounded-2xl shadow-md active:scale-95 active:transition-transform delay-100 active:bg-green-300">⬅️</button>
+        <div></div>
+        <button [disabled]="!this.inParty()" (click)="RightSnake()" class="bg-blue-300 p-3 rounded-2xl shadow-md active:scale-95 active:transition-transform delay-100 active:bg-green-300">➡️</button>
+        <div></div>
+        <button [disabled]="!this.inParty()" (click)="DownSnake()" class="bg-blue-300 p-3 rounded-2xl shadow-md active:scale-95 active:transition-transform delay-100 active:bg-green-300">⬇️</button>
+        <div></div>
+    </div>
+</main>
