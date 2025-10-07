@@ -41,6 +41,7 @@
     [class.max-h-96] = this.hide>
         <button class="cursor-pointer" routerLink="/" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Inicio</button>
         <button class="cursor-pointer" routerLink="/about" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Quien soy</button>
+        <button class="cursor-pointer" routerLink="/results" routerLinkActive="text-yellow-400" [routerLinkActiveOptions]="{ exact: true }">Top Mundiales</button>
         @if(hideButton) {
             <button class="cursor-pointer bg-yellow-400 w-fit px-2 py-1 border border-none text-blue-800 rounded" (click)="signOut()" appScaleBtnDirective>Cerrar Sesion</button>
         } @else {
