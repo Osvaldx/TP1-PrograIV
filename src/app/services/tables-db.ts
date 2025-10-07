@@ -21,12 +21,16 @@ export class TablesDB {
   private async getDataOfAhorcado() {
     const { data, error } = await this.supabase.client
     .from('games')
-    .select("*")
-    .eq('game_type', 'ahorcado');
+    .select("*, profiles ( firstName )")
+    .eq('game_type', 'ahorcado')
+    .eq('winner', true);
 
-    if(error) return console.log(error);
+    if(error) {
+      console.log(error);
+      return []
+    }
 
-    return data;
+    return data.sort((a, b) => a.details.time_playing - b.details.time_playing).slice(0, 5);
   }
   
   private async getDataOfAnotherTable(type: GamesType) {
