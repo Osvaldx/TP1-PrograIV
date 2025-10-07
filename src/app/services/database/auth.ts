@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { User } from "@supabase/supabase-js" 
+import { Injectable, signal } from '@angular/core';
+import { Session, User } from "@supabase/supabase-js" 
 import { BehaviorSubject } from 'rxjs';
 import { SupabaseService } from './supabase-service';
 
@@ -20,10 +20,12 @@ export class Auth {
 
   private currentUser = new BehaviorSubject<User | null>(null);
   public $user = this.currentUser.asObservable();
+  public session = signal<Session | null>(null);
 
   constructor(private supabase: SupabaseService) {
     this.supabase.client.auth.onAuthStateChange((_, session) => {
       this.currentUser.next(session?.user ?? null);
+      this.session.set(session);
     })
   }
 
