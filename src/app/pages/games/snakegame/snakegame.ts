@@ -39,6 +39,7 @@ export class Snakegame implements OnDestroy{
   public snake = signal<number[]>([116,115,114]);
   public food = signal<number>(125);
   private direction = signal<'up' | 'down' | 'left' | 'right'>('right');
+  private nextDirection = signal<'up' | 'down' | 'left' | 'right' | null>(null);
 
   public points = signal<number>(0);
   public timer = signal<number>(0);
@@ -60,10 +61,10 @@ export class Snakegame implements OnDestroy{
   private handleDirection(code: string) {
     if(this.validateKeyDown(code)) {
       switch(code) {
-        case 'KeyW': this.direction.set('up'); break;
-        case 'KeyS': this.direction.set('down'); break;
-        case 'KeyD': this.direction.set('right'); break;
-        case 'KeyA': this.direction.set('left'); break;
+        case 'KeyW': this.nextDirection.set('up'); break;
+        case 'KeyS': this.nextDirection.set('down'); break;
+        case 'KeyD': this.nextDirection.set('right'); break;
+        case 'KeyA': this.nextDirection.set('left'); break;
       }
     }
   }
@@ -102,10 +103,6 @@ export class Snakegame implements OnDestroy{
     this.TIMER_ID.set(TIMER_INTERVAL_ID);
   }
 
-  private stopTimer() {
-    clearInterval(this.TIMER_ID() as NodeJS.Timeout);
-  }
-
   public pause() {
     this.inParty.set(false);
   
@@ -138,6 +135,11 @@ export class Snakegame implements OnDestroy{
   }
 
   private moveSnake() {
+    if (this.nextDirection()) {
+      this.direction.set(this.nextDirection()!);
+      this.nextDirection.set(null)
+    }
+
     const head = this.snake()[0];
     const [x, y] = this.indexToXY(head);
 
